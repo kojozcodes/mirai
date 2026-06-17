@@ -212,7 +212,7 @@
   .wall-tag { font-family: var(--font-en); font-size: 12px; letter-spacing: .15em; color: var(--accent); font-weight: 600; }
 
   /* ===== 販売接続モデル（比較バー） ===== */
-  .compare { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+  .compare { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: start; }
   .bars { display: flex; flex-direction: column; gap: 26px; }
   .bar-row .bar-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
   .bar-row .bar-name { color: var(--text); font-weight: 700; font-size: 15px; }
@@ -230,6 +230,17 @@
     background: rgba(30,167,255,0.06);
   }
   .tag small { display: block; font-family: var(--font-jp); font-weight: 500; font-size: 11px; color: var(--text-3); letter-spacing: 0; }
+  /* 従来→Mirai の対比リスト：横バー比較を補強（依頼書の「シンプル」方針を維持） */
+  .bars-head { font-family: var(--font-en); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-3); margin: 0 0 18px; }
+  .compare-side__head { color: var(--text); font-weight: 700; font-size: 16px; margin: 0 0 16px; }
+  .contrast { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--card); margin-bottom: 22px; }
+  .contrast li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 13px 18px; font-size: 13.5px; }
+  .contrast li + li { border-top: 1px solid var(--line); }
+  .contrast .c-dim { color: var(--text-2); font-weight: 600; }
+  .contrast .c-vs { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .contrast .c-vs s { color: var(--text-3); font-size: 12.5px; }
+  .contrast .c-vs i { color: var(--accent); font-style: normal; font-weight: 700; }
+  .contrast .c-vs b { color: var(--accent-2); }
 
   /* ===== 強み ===== */
   .why { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
@@ -524,26 +535,36 @@
 
     <div class="compare">
       <div class="bars reveal">
+        <p class="bars-head">初期投資・固定費（イメージ比較）</p>
         <div class="bar-row">
-          <div class="bar-label"><span class="bar-name">従来モデル（直営店）</span><span class="bar-val">初期投資・固定費：大</span></div>
+          <div class="bar-label"><span class="bar-name">従来モデル（直営店）</span><span class="bar-val">数千万円〜</span></div>
           <div class="bar-track"><div class="bar-fill f-old" data-w="100%"></div></div>
         </div>
         <div class="bar-row">
-          <div class="bar-label"><span class="bar-name">Miraiパートナー｜代理店モデル</span><span class="bar-val">中</span></div>
-          <div class="bar-track"><div class="bar-fill f-mid" data-w="42%"></div></div>
+          <div class="bar-label"><span class="bar-name">Miraiパートナー｜代理店モデル</span><span class="bar-val">数百万円〜</span></div>
+          <div class="bar-track"><div class="bar-fill f-mid" data-w="40%"></div></div>
         </div>
         <div class="bar-row">
-          <div class="bar-label"><span class="bar-name">Miraiパートナー｜ECモデル</span><span class="bar-val">小</span></div>
-          <div class="bar-track"><div class="bar-fill f-low" data-w="22%"></div></div>
+          <div class="bar-label"><span class="bar-name">Miraiパートナー｜ECモデル</span><span class="bar-val">出店料のみ・30万円〜</span></div>
+          <div class="bar-track"><div class="bar-fill f-low" data-w="16%"></div></div>
         </div>
-        <p class="compare-note">※ コスト構造のイメージ図。既存ネットワークへ「接続」することで、ゼロからの販路開拓に比べ投資を大幅圧縮。</p>
+        <p class="compare-note">※ コスト構造のイメージ図。既存ネットワークへ「接続」することで、ゼロからの販路開拓に比べ初期投資を大幅圧縮。</p>
       </div>
 
-      <div class="tags reveal d1">
-        <span class="tag">Asset Light<small>自社資産を持たない</small></span>
-        <span class="tag">Low Entry Barrier<small>低い参入障壁</small></span>
-        <span class="tag">初期投資削減<small>Cost Down</small></span>
-        <span class="tag">スピード参入<small>Speed to Market</small></span>
+      <div class="compare-side reveal d1">
+        <p class="compare-side__head">従来モデルとの違い</p>
+        <ul class="contrast">
+          <li><span class="c-dim">現地法人の設立</span><span class="c-vs"><s>必須</s><i>→</i><b>不要</b></span></li>
+          <li><span class="c-dim">実店舗・現地スタッフ</span><span class="c-vs"><s>必要</s><i>→</i><b>不要</b></span></li>
+          <li><span class="c-dim">撤退リスク</span><span class="c-vs"><s>高い</s><i>→</i><b>極小</b></span></li>
+          <li><span class="c-dim">販路の確保</span><span class="c-vs"><s>ゼロから</s><i>→</i><b>既設網に接続</b></span></li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Asset Light<small>自社資産を持たない</small></span>
+          <span class="tag">Low Entry Barrier<small>低い参入障壁</small></span>
+          <span class="tag">初期投資削減<small>Cost Down</small></span>
+          <span class="tag">スピード参入<small>Speed to Market</small></span>
+        </div>
       </div>
     </div>
   </div>

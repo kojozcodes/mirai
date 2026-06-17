@@ -8,3 +8,6 @@
 # Local extraction / scratch artifacts
 _*.txt
 _*.py
+
+# Comparison drafts (e.g. Gemini's version) — not part of the deliverable
+preview/
