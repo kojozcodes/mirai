@@ -1,0 +1,10 @@
+# Confidential client briefs — never publish to the public Pages repo
+*.docx
+~$*
+
+# Local preview / tooling config
+.claude/
+
+# Local extraction / scratch artifacts
+_*.txt
+_*.py

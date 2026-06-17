@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>株式会社Miraiパートナー｜日本のものづくりと、中国小売ネットワークをつなぐ</title>
+<meta name="description" content="中国市場で日本商品を求めるパートナーと、日本の優れたものづくりを接続する。既存の販売ネットワークへ接続し、小さく始め、検証し、拡大する『販売接続型モデル』。" />
+
+<!-- OGP -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="株式会社Miraiパートナー｜日本のものづくりと、中国小売ネットワークをつなぐ" />
+<meta property="og:description" content="中国側に既に存在する販売ネットワークへ、日本商品を接続する。小さく始め、検証し、拡大する販売接続型モデル。" />
+<meta property="og:site_name" content="Miraiパートナー" />
+<meta property="og:url" content="https://www.mirai-partner.site/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- Fonts (CDN — HubSpotでブロックされる場合はテーマフォントに差し替え) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    /* 背景 */
+    --bg-0: #05070B;
+    --bg-1: #0B1020;
+    --bg-2: #111827;
+    /* アクセント（ブルー） */
+    --accent: #1EA7FF;
+    --accent-2: #33B5FF;
+    --accent-3: #5CC8FF;
+    /* テキスト */
+    --text: #FFFFFF;
+    --text-2: #D1D5DB;
+    --text-3: #9CA3AF;
+    /* 補助 */
+    --line: rgba(255,255,255,0.10);
+    --card: rgba(255,255,255,0.035);
+    --card-hover: rgba(255,255,255,0.06);
+    --glow: rgba(30,167,255,0.45);
+
+    --maxw: 1160px;
+    --radius: 16px;
+    --font-jp: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
+    --font-en: 'Inter', 'Noto Sans JP', sans-serif;
+    --font-head: 'Montserrat', 'Noto Sans JP', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font-jp);
+    color: var(--text-2);
+    background-color: var(--bg-0);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  /* 全体の背景演出（静かなブルーグロー） */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+      radial-gradient(900px 600px at 80% -5%, rgba(30,167,255,0.10), transparent 60%),
+      radial-gradient(800px 600px at 0% 30%, rgba(51,181,255,0.06), transparent 55%),
+      linear-gradient(180deg, var(--bg-0), var(--bg-1) 40%, var(--bg-0));
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  ul { margin: 0; padding: 0; list-style: none; }
+
+  /* ===== レイアウト共通 ===== */
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  section.block { padding: 120px 0; position: relative; }
+  .eyebrow {
+    font-family: var(--font-en);
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent-2); font-weight: 600; margin: 0 0 18px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--accent); display: inline-block; }
+  h2.title {
+    font-family: var(--font-jp);
+    font-size: clamp(28px, 4vw, 44px); font-weight: 900; color: var(--text);
+    line-height: 1.35; margin: 0 0 22px; letter-spacing: 0.01em;
+  }
+  .lead { font-size: clamp(15px, 1.7vw, 18px); color: var(--text-3); max-width: 760px; margin: 0 0 56px; }
+  .accent-text { color: var(--accent-2); }
+
+  /* ===== ヘッダー ===== */
+  header.nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    transition: background .3s ease, border-color .3s ease, backdrop-filter .3s ease;
+    border-bottom: 1px solid transparent;
+  }
+  header.nav.scrolled {
+    background: rgba(5,7,11,0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  /* [Brand Logo] — HubSpotで画像差し替え可能なフィールドに */
+  .brand-logo {
+    width: 34px; height: 34px; border-radius: 9px;
+    background: linear-gradient(135deg, var(--accent), #0E5AA8);
+    display: grid; place-items: center; box-shadow: 0 0 22px var(--glow);
+    flex: 0 0 auto;
+  }
+  .brand-logo svg { width: 20px; height: 20px; fill: #fff; }
+  .brand-name { font-weight: 700; color: var(--text); font-size: 16px; letter-spacing: .02em; }
+  .brand-name span { color: var(--text-3); font-weight: 500; font-size: 13px; display: block; line-height: 1; margin-top: 2px; font-family: var(--font-en); letter-spacing: .14em; }
+  .nav-links { display: flex; align-items: center; gap: 30px; }
+  .nav-links a.lnk { font-size: 14px; color: var(--text-2); transition: color .2s; }
+  .nav-links a.lnk:hover { color: var(--text); }
+
+  /* ===== ボタン ===== */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    font-family: var(--font-jp); font-weight: 700; font-size: 15px;
+    padding: 14px 26px; border-radius: 999px; cursor: pointer; border: 1px solid transparent;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #04101D; box-shadow: 0 6px 24px rgba(30,167,255,0.30);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(30,167,255,0.45); }
+  .btn-ghost { background: transparent; color: var(--text); border-color: var(--line); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent-2); background: rgba(30,167,255,0.06); }
+  .btn-sm { padding: 11px 20px; font-size: 14px; }
+
+  /* ===== ヒーロー ===== */
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 120px 0 80px; overflow: hidden; }
+  .hero-grid {
+    position: absolute; inset: 0; z-index: -1; opacity: .5;
+    background-image:
+      linear-gradient(rgba(30,167,255,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30,167,255,0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 75%);
+  }
+  .hero-visual { position: absolute; right: -4%; top: 50%; transform: translateY(-50%); width: min(55vw, 720px); z-index: -1; opacity: .9; pointer-events: none; }
+  .hero-content { max-width: 720px; }
+  .hero h1 {
+    font-family: var(--font-jp); font-weight: 900; color: var(--text);
+    font-size: clamp(32px, 5.6vw, 60px); line-height: 1.25; margin: 18px 0 26px; letter-spacing: .01em;
+  }
+  .hero h1 .hl { color: var(--accent-2); position: relative; }
+  .hero-sub { font-size: clamp(16px, 2vw, 21px); color: var(--text-2); font-weight: 500; margin: 0 0 40px; max-width: 600px; }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .scroll-hint { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--text-3); font-size: 11px; letter-spacing: .2em; font-family: var(--font-en); }
+  .scroll-hint .mouse { width: 22px; height: 36px; border: 1.5px solid var(--text-3); border-radius: 12px; position: relative; }
+  .scroll-hint .mouse::after { content: ""; position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 3px; height: 7px; border-radius: 2px; background: var(--accent-2); animation: scrolldot 1.6s ease-in-out infinite; }
+  @keyframes scrolldot { 0% { opacity: 0; top: 6px; } 30% { opacity: 1; } 60% { opacity: 1; top: 16px; } 100% { opacity: 0; top: 18px; } }
+
+  /* ===== カード共通 ===== */
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 34px 28px; transition: transform .3s ease, border-color .3s ease, background .3s ease;
+    position: relative; overflow: hidden;
+  }
+  .card:hover { transform: translateY(-4px); border-color: rgba(30,167,255,0.4); background: var(--card-hover); }
+  .icon-badge {
+    width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 20px;
+    background: rgba(30,167,255,0.10); border: 1px solid rgba(30,167,255,0.25);
+    box-shadow: 0 0 24px rgba(30,167,255,0.18);
+  }
+  .icon-badge svg { width: 28px; height: 28px; fill: var(--accent-2); filter: drop-shadow(0 0 6px rgba(51,181,255,0.6)); }
+  .card h3 { color: var(--text); font-size: 20px; font-weight: 700; margin: 0 0 10px; }
+  .card p { font-size: 14.5px; color: var(--text-3); margin: 0; line-height: 1.75; }
+
+  .grid { display: grid; gap: 22px; }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+  /* ===== 課題提起（壁） ===== */
+  #problem .icon-badge { background: rgba(30,167,255,0.08); }
+  .wall-tag { font-family: var(--font-en); font-size: 12px; letter-spacing: .15em; color: var(--accent); font-weight: 600; }
+
+  /* ===== 販売接続モデル（比較バー） ===== */
+  .compare { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+  .bars { display: flex; flex-direction: column; gap: 26px; }
+  .bar-row .bar-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+  .bar-row .bar-name { color: var(--text); font-weight: 700; font-size: 15px; }
+  .bar-row .bar-val { font-family: var(--font-en); font-size: 13px; color: var(--text-3); }
+  .bar-track { height: 16px; background: rgba(255,255,255,0.05); border-radius: 999px; overflow: hidden; border: 1px solid var(--line); }
+  .bar-fill { height: 100%; width: 0; border-radius: 999px; transition: width 1.4s cubic-bezier(.16,1,.3,1); }
+  .bar-fill.f-old { background: linear-gradient(90deg, #4B5563, #6B7280); }
+  .bar-fill.f-mid { background: linear-gradient(90deg, #0E5AA8, var(--accent)); }
+  .bar-fill.f-low { background: linear-gradient(90deg, var(--accent), var(--accent-3)); box-shadow: 0 0 18px var(--glow); }
+  .compare-note { font-size: 12.5px; color: var(--text-3); margin-top: 6px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 12px; }
+  .tag {
+    font-family: var(--font-en); font-weight: 600; font-size: 14px; color: var(--accent-2);
+    padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(30,167,255,0.3);
+    background: rgba(30,167,255,0.06);
+  }
+  .tag small { display: block; font-family: var(--font-jp); font-weight: 500; font-size: 11px; color: var(--text-3); letter-spacing: 0; }
+
+  /* ===== 強み ===== */
+  .why { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .why ul.checks li { position: relative; padding-left: 30px; margin-bottom: 16px; color: var(--text-2); font-size: 16px; }
+  .why ul.checks li::before {
+    content: ""; position: absolute; left: 0; top: 9px; width: 16px; height: 16px; border-radius: 50%;
+    background: rgba(30,167,255,0.15); border: 1px solid var(--accent);
+    box-shadow: 0 0 10px var(--glow);
+  }
+  .why ul.checks li::after { content: ""; position: absolute; left: 5px; top: 12px; width: 5px; height: 9px; border-right: 2px solid var(--accent-2); border-bottom: 2px solid var(--accent-2); transform: rotate(45deg); }
+  .quote { margin-top: 30px; padding: 26px 28px; border-left: 3px solid var(--accent); background: rgba(30,167,255,0.05); border-radius: 0 12px 12px 0; }
+  .quote p { font-style: italic; color: var(--text); font-weight: 500; font-size: 17px; margin: 0; line-height: 1.7; }
+  /* [Photo] プレースホルダー（HubSpotで差し替え） */
+  .photo-ph {
+    aspect-ratio: 4/3; border-radius: var(--radius); border: 1px solid var(--line);
+    background:
+      radial-gradient(circle at 70% 20%, rgba(30,167,255,0.18), transparent 50%),
+      linear-gradient(135deg, var(--bg-2), var(--bg-1));
+    display: grid; place-items: center; position: relative; overflow: hidden;
+  }
+  .photo-ph .ph-label { color: var(--text-3); font-family: var(--font-en); font-size: 13px; letter-spacing: .1em; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .photo-ph .ph-label svg { width: 40px; height: 40px; fill: var(--text-3); opacity: .6; }
+
+  /* ===== 経営陣 ===== */
+  .profile { display: flex; gap: 24px; align-items: flex-start; }
+  .profile-pic {
+    width: 96px; height: 96px; border-radius: 50%; flex: 0 0 auto; overflow: hidden;
+    background: linear-gradient(135deg, var(--bg-2), var(--bg-1)); border: 2px solid rgba(30,167,255,0.4);
+    display: grid; place-items: center; box-shadow: 0 0 20px rgba(30,167,255,0.15);
+  }
+  .profile-pic svg { width: 48px; height: 48px; fill: var(--text-3); }
+  .profile .role { color: var(--accent-2); font-family: var(--font-en); font-weight: 600; font-size: 13px; letter-spacing: .08em; margin: 0 0 4px; }
+  .profile h3 { color: var(--text); font-size: 24px; margin: 0 0 12px; font-weight: 700; }
+  .profile p.bio { font-size: 14px; color: var(--text-3); margin: 0; line-height: 1.75; }
+
+  /* ===== パートナーネットワーク ===== */
+  .partner-card { text-align: left; }
+  .partner-card .p-badge { display: inline-block; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 999px; margin-bottom: 18px; }
+  .partner-card h3 { font-size: 22px; }
+  .partner-card ul.places li { color: var(--text-3); font-size: 14.5px; padding: 5px 0 5px 18px; position: relative; }
+  .partner-card ul.places li::before { content: ""; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .net-close { text-align: center; color: var(--text-3); margin: 44px auto 0; max-width: 720px; font-size: 15px; }
+
+  /* ===== ロードマップ ===== */
+  .roadmap { position: relative; margin-top: 20px; }
+  .road-line { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; position: relative; }
+  .road-line::before { content: ""; position: absolute; top: 26px; left: 8%; right: 8%; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-3)); opacity: .35; }
+  .phase { text-align: center; cursor: pointer; padding-top: 0; }
+  .phase .node {
+    width: 54px; height: 54px; border-radius: 50%; margin: 0 auto 18px; display: grid; place-items: center;
+    background: var(--bg-1); border: 2px solid rgba(30,167,255,0.4); position: relative; z-index: 2;
+    transition: all .3s ease;
+  }
+  .phase .node svg { width: 24px; height: 24px; fill: var(--accent-2); transition: fill .3s; }
+  .phase.is-goal .node { border-color: var(--accent); background: linear-gradient(135deg, var(--accent), #0E5AA8); box-shadow: 0 0 26px var(--glow); }
+  .phase.is-goal .node svg { fill: #fff; }
+  .phase.active .node, .phase:hover .node { border-color: var(--accent); box-shadow: 0 0 26px var(--glow); transform: translateY(-3px); }
+  .phase .ph-num { font-family: var(--font-en); font-size: 11px; letter-spacing: .15em; color: var(--accent-2); font-weight: 700; }
+  .phase .ph-title { color: var(--text); font-weight: 700; font-size: 15px; margin: 4px 0 0; }
+  .road-detail {
+    margin-top: 40px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 32px 34px; min-height: 120px; transition: opacity .25s;
+  }
+  .road-detail .rd-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .road-detail .rd-num { font-family: var(--font-en); font-weight: 700; color: #04101D; background: var(--accent-2); padding: 4px 12px; border-radius: 6px; font-size: 13px; letter-spacing: .1em; }
+  .road-detail h3 { color: var(--text); margin: 0; font-size: 22px; }
+  .road-detail ul { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+  .road-detail ul li { color: var(--text-2); font-size: 15px; padding-left: 22px; position: relative; }
+  .road-detail ul li::before { content: ""; position: absolute; left: 0; top: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--glow); }
+
+  /* ===== 料金 ===== */
+  .pricing-wrap { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--card); backdrop-filter: blur(6px); }
+  table.pricing { width: 100%; border-collapse: collapse; }
+  table.pricing th, table.pricing td { padding: 22px 26px; text-align: left; border-bottom: 1px solid var(--line); }
+  table.pricing thead th { background: rgba(30,167,255,0.08); color: var(--text); font-size: 14px; letter-spacing: .05em; font-weight: 700; }
+  table.pricing tbody td:first-child { color: var(--text); font-weight: 700; font-size: 16px; width: 28%; }
+  table.pricing tbody td.price { color: var(--accent-2); font-weight: 800; font-size: 22px; font-family: var(--font-en); width: 22%; }
+  table.pricing tbody td.price.free { color: var(--accent-3); }
+  table.pricing tbody td:last-child { color: var(--text-3); font-size: 14px; }
+  table.pricing tbody tr:last-child td { border-bottom: none; }
+  .price-note { font-size: 13px; color: var(--text-3); margin: 16px 2px 0; }
+  .bonus {
+    margin-top: 26px; padding: 22px 28px; border-radius: 14px; text-align: center;
+    background: rgba(30,167,255,0.07); border: 1px dashed rgba(30,167,255,0.45);
+    color: var(--text); font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .bonus svg { width: 26px; height: 26px; fill: var(--accent-2); flex: 0 0 auto; }
+  .bonus .cash { color: var(--accent-3); }
+
+  /* ===== 共創メッセージ ===== */
+  .cocreate { text-align: center; position: relative; overflow: hidden; }
+  .cocreate .big { font-family: var(--font-jp); font-weight: 900; color: var(--text); font-size: clamp(26px, 4.4vw, 46px); line-height: 1.4; margin: 14px 0 0; }
+  .cocreate .big .hl { color: var(--accent-2); }
+  .cocreate .sub { color: var(--text-3); margin-top: 24px; font-size: 16px; }
+
+  /* ===== コンタクト ===== */
+  #contact { background: linear-gradient(180deg, var(--bg-0), #060A14); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .contact-copy h2 { font-size: clamp(26px, 3.4vw, 38px); }
+  .reassure { color: var(--text-3); font-size: 15px; margin: 0 0 32px; }
+  .channels { display: flex; flex-direction: column; gap: 16px; }
+  .channel {
+    display: flex; align-items: center; gap: 18px; padding: 22px 24px; border-radius: 14px;
+    background: var(--card); border: 1px solid var(--line); transition: border-color .25s, background .25s, transform .25s;
+  }
+  .channel:hover { border-color: rgba(30,167,255,0.45); background: var(--card-hover); transform: translateY(-2px); }
+  .channel .ch-icon { width: 52px; height: 52px; flex: 0 0 auto; border-radius: 12px; display: grid; place-items: center; background: rgba(30,167,255,0.1); border: 1px solid rgba(30,167,255,0.25); }
+  .channel .ch-icon svg { width: 26px; height: 26px; fill: var(--accent-2); }
+  .channel .ch-label { font-size: 13px; color: var(--text-3); margin: 0 0 3px; }
+  .channel .ch-main { font-size: 20px; font-weight: 700; color: var(--text); font-family: var(--font-en); letter-spacing: .01em; word-break: break-all; }
+  .channel .ch-note { font-size: 12px; color: var(--text-3); margin: 4px 0 0; }
+
+  /* フォーム */
+  .form-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 36px; }
+  .form-card h3 { color: var(--text); margin: 0 0 6px; font-size: 22px; }
+  .form-card .hs-hint { font-size: 12px; color: var(--text-3); margin: 0 0 24px; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 13px; color: var(--text-2); margin-bottom: 8px; font-weight: 500; }
+  .field label .req { color: var(--accent-2); font-size: 11px; margin-left: 6px; }
+  .field input, .field textarea {
+    width: 100%; padding: 14px 16px; border-radius: 10px; font-size: 15px; font-family: var(--font-jp);
+    background: rgba(255,255,255,0.04); border: 1px solid var(--line); color: var(--text); transition: border-color .2s, box-shadow .2s;
+  }
+  .field input::placeholder, .field textarea::placeholder { color: #5b6678; }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(30,167,255,0.15); }
+  .form-card .btn-primary { width: 100%; margin-top: 8px; padding: 16px; font-size: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+  /* ===== フッター ===== */
+  footer.foot { border-top: 1px solid var(--line); padding: 56px 0 40px; background: var(--bg-0); }
+  .foot-inner { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
+  .foot .brand-name { font-size: 17px; }
+  .foot-meta { color: var(--text-3); font-size: 14px; line-height: 1.9; }
+  .foot-meta a:hover { color: var(--accent-2); }
+  .foot-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--text-3); font-family: var(--font-en); letter-spacing: .05em; }
+
+  /* ===== モバイル固定CTA ===== */
+  .mobile-cta {
+    position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 90;
+    display: none; transform: translateY(140%); transition: transform .4s cubic-bezier(.16,1,.3,1);
+  }
+  .mobile-cta.show { transform: translateY(0); }
+  .mobile-cta .btn { width: 100%; padding: 16px; font-size: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.5), 0 6px 24px rgba(30,167,255,0.4); }
+
+  /* ===== スクロール演出 ===== */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .08s; }
+  .reveal.d2 { transition-delay: .16s; }
+  .reveal.d3 { transition-delay: .24s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+    html { scroll-behavior: auto; }
+    .scroll-hint .mouse::after { animation: none; }
+  }
+
+  /* ===== レスポンシブ ===== */
+  @media (max-width: 980px) {
+    section.block { padding: 88px 0; }
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: 1fr; }
+    .compare, .why, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { opacity: .4; right: -20%; }
+    .nav-links a.lnk { display: none; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 18px; }
+    .grid-4, .grid-2 { grid-template-columns: 1fr; }
+    .road-line { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+    .phase .node { width: 44px; height: 44px; }
+    .phase .ph-title { font-size: 11px; }
+    .phase .node svg { width: 18px; height: 18px; }
+    .road-detail { padding: 24px 22px; }
+    table.pricing th, table.pricing td { padding: 16px 14px; }
+    table.pricing tbody td:first-child { font-size: 14px; }
+    table.pricing tbody td.price { font-size: 18px; }
+    table.pricing thead th:last-child, table.pricing tbody td:last-child { display: none; } /* スマホは項目・料金のみ */
+    .form-row { grid-template-columns: 1fr; }
+    .nav .btn { display: none; }
+    .mobile-cta { display: block; }
+    body { padding-bottom: 92px; } /* 固定CTA分の余白を確保 */
+    .hero { min-height: auto; padding: 130px 0 90px; }
+    .brand-name span { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ ヘッダー ============ -->
+<header class="nav" id="siteHeader">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand" aria-label="Miraiパートナー">
+      <!-- [Brand Logo] HubSpot差し替えポイント -->
+      <span class="brand-logo"><svg viewBox="0 0 24 24"><path d="M12 2 2 21h20L12 2zm0 5.6 5.9 11.4H6.1L12 7.6z"/></svg></span>
+      <span class="brand-name">株式会社Miraiパートナー<span>MIRAI PARTNER</span></span>
+    </a>
+    <nav class="nav-links">
+      <a class="lnk" href="#problem">課題</a>
+      <a class="lnk" href="#model">モデル</a>
+      <a class="lnk" href="#roadmap">ロードマップ</a>
+      <a class="lnk" href="#pricing">料金</a>
+      <a class="btn btn-primary btn-sm" href="#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ ヒーロー ============ -->
+<section class="hero" id="top">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <!-- 日本→中国を「つなぐ」接続ビジュアル（橋・光） -->
+  <svg class="hero-visual" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="arc1" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#1EA7FF" stop-opacity="0.1"/>
+        <stop offset="1" stop-color="#5CC8FF" stop-opacity="0.9"/>
+      </linearGradient>
+      <radialGradient id="node" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0" stop-color="#5CC8FF"/>
+        <stop offset="1" stop-color="#1EA7FF" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <g fill="none" stroke="url(#arc1)" stroke-linecap="round">
+      <path d="M60,500 C120,300 380,260 560,70" stroke-width="2" stroke-dasharray="3 10" opacity="0.7"/>
+      <path d="M40,500 C140,320 360,300 540,120" stroke-width="3"/>
+      <path d="M90,500 C180,340 420,250 580,40" stroke-width="1.5" stroke-dasharray="2 14" opacity="0.5"/>
+    </g>
+    <circle cx="40" cy="500" r="30" fill="url(#node)"/>
+    <circle cx="560" cy="70" r="40" fill="url(#node)"/>
+    <circle cx="40" cy="500" r="5" fill="#5CC8FF"/>
+    <circle cx="560" cy="70" r="6" fill="#5CC8FF"/>
+  </svg>
+
+  <div class="wrap hero-content reveal">
+    <p class="eyebrow">JAPAN × CHINA / SALES CONNECTION</p>
+    <h1>日本のものづくりと、<br><span class="hl">中国小売ネットワーク</span>をつなぐ</h1>
+    <p class="hero-sub">中国市場で日本商品を求めるパートナーと、日本の優れたものづくりを接続する。</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">まずは相談する</a>
+      <a href="#model" class="btn btn-ghost">事業内容を見る</a>
+    </div>
+  </div>
+
+  <a href="#problem" class="scroll-hint" aria-label="スクロール">
+    <span class="mouse"></span>
+    SCROLL
+  </a>
+</section>
+
+<!-- ============ 課題提起 ============ -->
+<section class="block" id="problem">
+  <div class="wrap">
+    <p class="eyebrow reveal">The Challenge</p>
+    <h2 class="title reveal">中国で“売れる接点”を、<br>どう作るか？</h2>
+    <p class="lead reveal">商品には自信があるが、ノウハウがない。Miraiパートナーは、日本メーカーが抱える「参入障壁」を取り払います。</p>
+
+    <div class="grid grid-4">
+      <div class="card reveal">
+        <span class="icon-badge"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></span>
+        <p class="wall-tag">WALL 01</p>
+        <h3>実務の壁</h3>
+        <p>海外輸出入の経験がなく、手続きが煩雑で進め方がわからない。</p>
+      </div>
+      <div class="card reveal d1">
+        <span class="icon-badge"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>
+        <p class="wall-tag">WALL 02</p>
+        <h3>繋がりの壁</h3>
+        <p>中国現地での有力なコネクションや、信頼できるパートナーがいない。</p>
+      </div>
+      <div class="card reveal d2">
+        <span class="icon-badge"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></span>
+        <p class="wall-tag">WALL 03</p>
+        <h3>リスクの壁</h3>
+        <p>直営店を出すための初期投資が大きすぎ、失敗した際の痛手が大きい。</p>
+      </div>
+      <div class="card reveal d3">
+        <span class="icon-badge"><svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg></span>
+        <p class="wall-tag">WALL 04</p>
+        <h3>運用の壁</h3>
+        <p>契約書やリーガルチェックの手間、言語の壁によるコミュニケーションロス。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 販売接続モデル ============ -->
+<section class="block" id="model">
+  <div class="wrap">
+    <p class="eyebrow reveal">Sales Connection Model</p>
+    <h2 class="title reveal">販売接続を、もっと軽く。</h2>
+    <p class="lead reveal">従来モデルに比べ、初期投資と固定費を大幅に削減。まずは「トライ」できる環境を提供します。</p>
+
+    <div class="compare">
+      <div class="bars reveal">
+        <div class="bar-row">
+          <div class="bar-label"><span class="bar-name">従来モデル（直営店）</span><span class="bar-val">初期投資・固定費：大</span></div>
+          <div class="bar-track"><div class="bar-fill f-old" data-w="100%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span class="bar-name">Miraiパートナー｜代理店モデル</span><span class="bar-val">中</span></div>
+          <div class="bar-track"><div class="bar-fill f-mid" data-w="42%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span class="bar-name">Miraiパートナー｜ECモデル</span><span class="bar-val">小</span></div>
+          <div class="bar-track"><div class="bar-fill f-low" data-w="22%"></div></div>
+        </div>
+        <p class="compare-note">※ コスト構造のイメージ図。既存ネットワークへ「接続」することで、ゼロからの販路開拓に比べ投資を大幅圧縮。</p>
+      </div>
+
+      <div class="tags reveal d1">
+        <span class="tag">Asset Light<small>自社資産を持たない</small></span>
+        <span class="tag">Low Entry Barrier<small>低い参入障壁</small></span>
+        <span class="tag">初期投資削減<small>Cost Down</small></span>
+        <span class="tag">スピード参入<small>Speed to Market</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 強み ============ -->
+<section class="block" id="why">
+  <div class="wrap">
+    <div class="why">
+      <div class="reveal">
+        <p class="eyebrow">Why Mirai Partner</p>
+        <h2 class="title">なぜMiraiパートナー<br>なのか？</h2>
+        <p class="lead" style="margin-bottom:28px;">現場を知るプロが集結。なぜ日本企業単独での中国展開は難しいのか——私たちは上海の現場でその理由を考え抜き、実践的な対策を講じてきました。</p>
+        <ul class="checks">
+          <li>中国現場での豊富な実務経験</li>
+          <li>日本企業の支援・伴走経験</li>
+          <li>「攻め（販売）」と「守り（会計・法務）」の両立</li>
+          <li>一過性ではない、Win-Winの長期思想</li>
+        </ul>
+        <div class="quote">
+          <p>「一生懸命な日本企業が、我々を通じて中国市場でハッピーになれば、我々もハッピーになる。そんなWin-Winの関係を目指しています。」</p>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <!-- [Photo] 現場・チーム写真をHubSpotで差し替え -->
+        <div class="photo-ph">
+          <span class="ph-label">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            [ Photo ] 現場・チーム写真
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 経営陣 ============ -->
+<section class="block" id="team">
+  <div class="wrap">
+    <p class="eyebrow reveal">Management Team</p>
+    <h2 class="title reveal">経営陣紹介</h2>
+    <p class="lead reveal">実務のプロ（MD・小売）と守りのプロ（会計・法務）がタッグを組み、盤石の体制で支援します。</p>
+
+    <div class="grid grid-2">
+      <div class="card reveal">
+        <div class="profile">
+          <!-- [Photo] 顔写真を後日差し込み -->
+          <div class="profile-pic"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+          <div>
+            <p class="role">代表取締役 / CEO</p>
+            <h3>増田 稔弘</h3>
+            <p class="bio">日系高級婦人ブランドに29年勤務。中国事業総責任者を歴任し、新規事業立上・MD企画の豊富な経験を持つ。2026年、Miraiパートナーを設立。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card reveal d1">
+        <div class="profile">
+          <div class="profile-pic"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+          <div>
+            <p class="role">取締役 / CFO</p>
+            <h3>星野 海</h3>
+            <p class="bio">日本国税理士、証券アナリスト。中国を中心に、日系現地法人のバックオフィス支援（会計・登記等）を提供する体制を運営。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 中国パートナーネットワーク ============ -->
+<section class="block" id="network">
+  <div class="wrap">
+    <p class="eyebrow reveal">Partner Network in China</p>
+    <h2 class="title reveal">中国市場で販売力を持つ<br>パートナーとの接続</h2>
+    <p class="lead reveal">「ゼロから販路開拓」ではなく、既に存在するネットワークへ。日本商品の魅力を理解する現地パートナーと連携します。</p>
+
+    <div class="grid grid-3">
+      <div class="card partner-card reveal">
+        <span class="p-badge" style="background:rgba(30,167,255,0.12); color:var(--accent-2);">現地流通パートナー</span>
+        <h3>株式会社HAYI</h3>
+        <p>日系商品の取り扱い実績多数。中国現地での広範な流通ネットワークを保有し、物流から卸までをカバー。</p>
+      </div>
+      <div class="card partner-card reveal d1">
+        <span class="p-badge" style="background:rgba(92,200,255,0.14); color:var(--accent-3);">中国大手小売パートナー</span>
+        <h3>DAZZLE FASHION</h3>
+        <p>日本にも進出する、中国全土への販売展開力を持つ大手アパレルグループ。強力な集客力を有する。</p>
+      </div>
+      <div class="card partner-card reveal d2">
+        <span class="p-badge" style="background:rgba(255,255,255,0.08); color:var(--text-2);">ハイエンド販路ネットワーク</span>
+        <h3>有力小売・百貨店</h3>
+        <ul class="places">
+          <li>北京 SKP</li>
+          <li>上海 恒隆広場</li>
+          <li>上海 新天地</li>
+          <li>久光百貨　など</li>
+        </ul>
+      </div>
+    </div>
+    <p class="net-close reveal">日本商品の魅力を理解する現地パートナーと連携し、中国市場での販売接続を支援します。</p>
+  </div>
+</section>
+
+<!-- ============ 取引ロードマップ ============ -->
+<section class="block" id="roadmap">
+  <div class="wrap">
+    <p class="eyebrow reveal">Roadmap</p>
+    <h2 class="title reveal">取引ロードマップ</h2>
+    <p class="lead reveal">最短ルートで中国市場への販売を実現し、共に未来を広げていきます。<span class="accent-text">（各フェーズをタップで詳細表示）</span></p>
+
+    <div class="roadmap reveal">
+      <div class="road-line" id="roadLine">
+        <div class="phase active" data-phase="0">
+          <div class="node"><svg viewBox="0 0 24 24"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM7 9h10v2H7V9zm6 5H7v-2h6v2zm4-6H7V6h10v2z"/></svg></div>
+          <p class="ph-num">PHASE 1</p>
+          <p class="ph-title">商品診断</p>
+        </div>
+        <div class="phase" data-phase="1">
+          <div class="node"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 14h-3v-2h3v2zm0-4h-3V9h3v3zM13 9V3.5L18.5 9H13z"/></svg></div>
+          <p class="ph-num">PHASE 2</p>
+          <p class="ph-title">取引開始</p>
+        </div>
+        <div class="phase" data-phase="2">
+          <div class="node"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+          <p class="ph-num">PHASE 3</p>
+          <p class="ph-title">販売マッチング</p>
+        </div>
+        <div class="phase" data-phase="3">
+          <div class="node"><svg viewBox="0 0 24 24"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg></div>
+          <p class="ph-num">PHASE 4</p>
+          <p class="ph-title">販売開始</p>
+        </div>
+        <div class="phase is-goal" data-phase="4">
+          <div class="node"><svg viewBox="0 0 24 24"><path d="m12 2 2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21.4 8 14 2 9.4h7.6L12 2z"/></svg></div>
+          <p class="ph-num">GOAL</p>
+          <p class="ph-title">継続拡大</p>
+        </div>
+      </div>
+
+      <div class="road-detail" id="roadDetail" aria-live="polite"><!-- JSで描画 --></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 料金体系 ============ -->
+<section class="block" id="pricing">
+  <div class="wrap">
+    <p class="eyebrow reveal">Pricing</p>
+    <h2 class="title reveal">料金体系（明朗会計）</h2>
+    <p class="lead reveal">小さく始められる、透明性の高い料金プラン。</p>
+
+    <div class="pricing-wrap reveal">
+      <table class="pricing">
+        <thead>
+          <tr><th>項目</th><th>料金</th><th>詳細・備考</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>相談料</td>
+            <td class="price free">無料</td>
+            <td>まずは商品の可能性を診断いたします。お気軽にご相談ください。</td>
+          </tr>
+          <tr>
+            <td>出店・出品手数料</td>
+            <td class="price">¥300,000</td>
+            <td>初期セットアップ費用。プラットフォーム登録や各種申請サポートを含みます。</td>
+          </tr>
+          <tr>
+            <td>年間サポート</td>
+            <td class="price">¥100,000</td>
+            <td>2年目以降、必要に応じて更新可能です。</td>
+          </tr>
+          <tr>
+            <td>事務手数料</td>
+            <td class="price">卸値の5%</td>
+            <td><strong class="accent-text">★ 1年目は3%の優遇レートを適用します。</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="price-note reveal">※ 商標登録、検査、輸送費等の実費は別途ご負担いただきます。お見積もりは無料です。</p>
+
+    <div class="bonus reveal d1">
+      <svg viewBox="0 0 24 24"><path d="M20 12v8H4v-8H2V8h4.5a3.5 3.5 0 0 1 5.5-4 3.5 3.5 0 0 1 5.5 4H22v4h-2zM9.5 6A1.5 1.5 0 1 0 11 7.5V6H9.5zM13 6v1.5A1.5 1.5 0 1 0 14.5 6H13zm-2 4H4v2h7v-2zm0 4H6v4h5v-4zm2 4h5v-4h-5v4zm0-6h7v-2h-7v2z"/></svg>
+      ご紹介特典：契約成立で <span class="cash">5万円</span> キャッシュバック！
+    </div>
+  </div>
+</section>
+
+<!-- ============ 共創メッセージ ============ -->
+<section class="block cocreate" id="cocreate">
+  <div class="wrap reveal">
+    <p class="eyebrow" style="justify-content:center;">Co-Creation</p>
+    <p class="big">共に未来をつくる<br>パートナーを募集しています</p>
+    <p class="sub">皆さんと一緒に、<span class="accent-text">未来をつくっていきましょう。</span></p>
+    <div style="margin-top:36px;"><a href="#contact" class="btn btn-primary">まずは相談する</a></div>
+  </div>
+</section>
+
+<!-- ============ コンタクト ============ -->
+<section class="block" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-copy reveal">
+        <p class="eyebrow">Contact</p>
+        <h2 class="title">中国市場への挑戦、<br>まずは気軽な「相談」から。</h2>
+        <p class="reassure">「何から相談していいかわからない」という段階でも大歓迎です。まずは相談してみてから、進めるかどうかを検討いただくのも一つの選択肢です。「相談する」という第一歩が、貴社の未来を大きく変えるきっかけになります。</p>
+
+        <div class="channels">
+          <a class="channel" href="mailto:otoiawase@mirai-partner.site">
+            <span class="ch-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+            <div>
+              <p class="ch-label">メールで相談</p>
+              <p class="ch-main">otoiawase@mirai-partner.site</p>
+              <p class="ch-note">Webフォームまたは直接メールにて。2日以内に必ず返信いたします。</p>
+            </div>
+          </a>
+          <a class="channel" href="tel:0XXXXXXXXXX">
+            <span class="ch-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1l-2.23 2.2z"/></svg></span>
+            <div>
+              <p class="ch-label">電話で相談</p>
+              <p class="ch-main">0XX-XXXX-XXXX</p>
+              <p class="ch-note">（平日 9:00–18:00）窓口不在の場合は、こちらから折り返しいたします。</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- HubSpotフォーム埋め込み枠：このform-cardの中身をHubSpotフォームタグに差し替え -->
+      <div class="form-card reveal d1">
+        <h3>無料相談お申し込み</h3>
+        <p class="hs-hint">※ 実装時、この枠内をHubSpotのフォーム埋め込みタグに差し替えてください。</p>
+        <form id="contactForm" novalidate>
+          <div class="field">
+            <label>会社名 <span class="req">必須</span></label>
+            <input type="text" name="company" placeholder="株式会社〇〇" required />
+          </div>
+          <div class="field">
+            <label>ご担当者名 <span class="req">必須</span></label>
+            <input type="text" name="name" placeholder="山田 太郎" required />
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label>メールアドレス <span class="req">必須</span></label>
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="field">
+              <label>電話番号（任意）</label>
+              <input type="tel" name="tel" placeholder="03-1234-5678" />
+            </div>
+          </div>
+          <div class="field">
+            <label>打ち合わせ希望日（任意）</label>
+            <input type="text" name="date" placeholder="例：来週前半 / 6月20日 午後 など" />
+          </div>
+          <div class="field">
+            <label>お問い合わせ内容 <span class="req">必須</span></label>
+            <textarea name="message" rows="4" placeholder="商品の概要や、ご相談されたい内容をご記入ください。" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">送信する</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ フッター ============ -->
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div>
+      <div class="brand" style="margin-bottom:16px;">
+        <span class="brand-logo"><svg viewBox="0 0 24 24"><path d="M12 2 2 21h20L12 2zm0 5.6 5.9 11.4H6.1L12 7.6z"/></svg></span>
+        <span class="brand-name">株式会社Miraiパートナー<span>MIRAI PARTNER</span></span>
+      </div>
+      <p class="foot-meta" style="max-width:340px;">日本のものづくりと、中国小売ネットワークをつなぐ。販売接続型モデルで、小さく始め、検証し、拡大する。</p>
+    </div>
+    <div class="foot-meta">
+      <strong style="color:var(--text-2);">CONTACT</strong><br>
+      〒107-0061 東京都港区北青山1丁目<br>
+      <a href="mailto:otoiawase@mirai-partner.site">otoiawase@mirai-partner.site</a><br>
+      <a href="https://www.mirai-partner.site">www.mirai-partner.site</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Mirai Partner Inc. All rights reserved.</span>
+    <span>JAPAN × CHINA / SALES CONNECTION</span>
+  </div>
+</footer>
+
+<!-- モバイル固定CTA -->
+<div class="mobile-cta" id="mobileCta">
+  <a href="#contact" class="btn btn-primary">まずは無料で相談する</a>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ===== ヘッダーのスクロール状態 ===== */
+  var header = document.getElementById('siteHeader');
+  var mobileCta = document.getElementById('mobileCta');
+  function onScroll() {
+    var y = window.scrollY || window.pageYOffset;
+    header.classList.toggle('scrolled', y > 40);
+    if (mobileCta) mobileCta.classList.toggle('show', y > window.innerHeight * 0.7);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ===== スクロール演出（reveal） ===== */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          // 比較バーのアニメーション発火
+          e.target.querySelectorAll && e.target.querySelectorAll('.bar-fill').forEach(function (b) {
+            b.style.width = b.getAttribute('data-w');
+          });
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+    document.querySelectorAll('.bar-fill').forEach(function (b) { b.style.width = b.getAttribute('data-w'); });
+  }
+
+  /* ===== ロードマップ：フェーズ切り替え ===== */
+  var phaseData = [
+    { num: 'PHASE 1', title: '商品診断', items: ['相談（基本無料）', '商品適性診断'] },
+    { num: 'PHASE 2', title: '取引開始', items: ['条件確認', '現地契約サポート'] },
+    { num: 'PHASE 3', title: '販売マッチング', items: ['販売先選定', 'スケジュール確認'] },
+    { num: 'PHASE 4', title: '販売開始', items: ['現地サポート', '運用支援'] },
+    { num: 'GOAL', title: '継続拡大', items: ['多都市展開', '多チャネル展開'] }
+  ];
+  var detail = document.getElementById('roadDetail');
+  var phases = document.querySelectorAll('#roadLine .phase');
+  function renderPhase(i) {
+    var d = phaseData[i];
+    if (!d) return;
+    detail.innerHTML =
+      '<div class="rd-head"><span class="rd-num">' + d.num + '</span><h3>' + d.title + '</h3></div>' +
+      '<ul>' + d.items.map(function (it) { return '<li>' + it + '</li>'; }).join('') + '</ul>';
+    phases.forEach(function (p, idx) { p.classList.toggle('active', idx === i); });
+  }
+  phases.forEach(function (p) {
+    p.addEventListener('click', function () { renderPhase(parseInt(p.getAttribute('data-phase'), 10)); });
+  });
+  renderPhase(0);
+
+  /* ===== フォーム（デモ：HubSpot差し替え前提） ===== */
+  var form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      alert('【デモ用フォーム】\\n送信ありがとうございます。実装時はHubSpotフォームに差し替わり、自動返信メールが送信されます。');
+      form.reset();
+    });
+  }
+})();
+</script>
+</body>
+</html>
