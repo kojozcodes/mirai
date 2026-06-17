@@ -174,6 +174,15 @@
     position: absolute; inset: 0; z-index: -1; pointer-events: none;
     background: linear-gradient(100deg, var(--bg-0) 4%, rgba(5,7,11,0.86) 28%, rgba(5,7,11,0.45) 50%, rgba(5,7,11,0) 70%);
   }
+  /* 中国都市景観（上海）の背景写真：暗くオーバーレイし、落ち着いた高級感に */
+  .hero-photo {
+    position: absolute; inset: 0; z-index: -2; pointer-events: none;
+    background: url("assets/img/hero-shanghai.jpg") center 40% / cover no-repeat;
+  }
+  .hero-photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(5,7,11,0.80) 0%, rgba(5,7,11,0.44) 46%, rgba(5,7,11,0.80) 100%);
+  }
 
   /* border beam（回転する発光）は依頼書の方針（軽微アニメーション／テカテカ NG）に合わせ不採用 */
 
@@ -243,6 +252,7 @@
   }
   .photo-ph .ph-label { color: var(--text-3); font-family: var(--font-en); font-size: 13px; letter-spacing: .1em; display: flex; flex-direction: column; align-items: center; gap: 10px; }
   .photo-ph .ph-label svg { width: 40px; height: 40px; fill: var(--text-3); opacity: .6; }
+  .photo-ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   /* ===== 経営陣 ===== */
   .profile { display: flex; gap: 24px; align-items: flex-start; }
@@ -444,6 +454,8 @@
 
 <!-- ============ ヒーロー ============ -->
 <section class="hero" id="top">
+  <!-- 中国都市景観（上海）背景写真 — 出典: Pexels（無料・商用可・帰属不要） -->
+  <div class="hero-photo" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
   <!-- 日本→中国を「つなぐ」接続ライン（21st.dev「Background Paths」を参考に vanilla 実装） -->
   <div class="bg-paths" aria-hidden="true">
@@ -556,12 +568,9 @@
         </div>
       </div>
       <div class="reveal d1">
-        <!-- [Photo] 現場・チーム写真をHubSpotで差し替え -->
+        <!-- 日本のものづくり（職人の手仕事）— 出典: Pexels（無料・商用可・帰属不要）。HubSpotで画像差し替え可 -->
         <div class="photo-ph">
-          <span class="ph-label">
-            <svg viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-            [ Photo ] 現場・チーム写真
-          </span>
+          <img src="assets/img/monozukuri.jpg" alt="日本のものづくり — 職人の手仕事" loading="lazy" />
         </div>
       </div>
     </div>
