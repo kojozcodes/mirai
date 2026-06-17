@@ -139,7 +139,7 @@
   /* ===== ヒーロー ===== */
   .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 120px 0 80px; overflow: hidden; }
   .hero-grid {
-    position: absolute; inset: 0; z-index: -1; opacity: .5;
+    position: absolute; inset: 0; z-index: -1; opacity: .3;
     background-image:
       linear-gradient(rgba(30,167,255,0.06) 1px, transparent 1px),
       linear-gradient(90deg, rgba(30,167,255,0.06) 1px, transparent 1px);
@@ -160,6 +160,40 @@
   .scroll-hint .mouse { width: 22px; height: 36px; border: 1.5px solid var(--text-3); border-radius: 12px; position: relative; }
   .scroll-hint .mouse::after { content: ""; position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 3px; height: 7px; border-radius: 2px; background: var(--accent-2); animation: scrolldot 1.6s ease-in-out infinite; }
   @keyframes scrolldot { 0% { opacity: 0; top: 6px; } 30% { opacity: 1; } 60% { opacity: 1; top: 16px; } 100% { opacity: 0; top: 18px; } }
+
+  /* ===== 21st.dev「Background Paths」を vanilla 移植：流れる接続ライン ===== */
+  .bg-paths {
+    position: absolute; inset: 0; z-index: -1; color: var(--accent-2); pointer-events: none;
+    -webkit-mask-image: radial-gradient(ellipse 88% 80% at 62% 46%, #000 26%, transparent 80%);
+    mask-image: radial-gradient(ellipse 88% 80% at 62% 46%, #000 26%, transparent 80%);
+  }
+  .bg-paths svg { width: 100%; height: 100%; display: block; }
+  .bg-paths path {
+    fill: none; stroke: currentColor; will-change: stroke-dashoffset;
+    animation-name: pathFlow; animation-timing-function: linear; animation-iteration-count: infinite;
+  }
+  @keyframes pathFlow { to { stroke-dashoffset: -1; } }
+  /* テキスト可読性のための左寄せダークスクリム（ラインの上・本文の下） */
+  .hero-scrim {
+    position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: linear-gradient(100deg, var(--bg-0) 4%, rgba(5,7,11,0.86) 28%, rgba(5,7,11,0.45) 50%, rgba(5,7,11,0) 70%);
+  }
+
+  /* ===== アニメーション境界線（border beam）：21st.dev Borders を参考に ===== */
+  @property --beam-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+  .beam { position: relative; }
+  .beam::before {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; pointer-events: none;
+    background: conic-gradient(from var(--beam-angle, 0deg), transparent 0 68%, var(--accent) 80%, var(--accent-3) 90%, transparent 100%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    animation: beamSpin 7s linear infinite;
+  }
+  @keyframes beamSpin { to { --beam-angle: 360deg; } }
+  @media (prefers-reduced-motion: reduce) {
+    .bg-paths path { animation: none !important; }
+    .beam::before { animation: none; }
+  }
 
   /* ===== カード共通 ===== */
   .card {
@@ -247,6 +281,30 @@
   .partner-card ul.places li { color: var(--text-3); font-size: 14.5px; padding: 5px 0 5px 18px; position: relative; }
   .partner-card ul.places li::before { content: ""; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
   .net-close { text-align: center; color: var(--text-3); margin: 44px auto 0; max-width: 720px; font-size: 15px; }
+  /* ===== ロゴマーキー（21st.dev Clients「Sparkles」を参考に vanilla 実装） ===== */
+  .logo-wall { margin-top: 60px; position: relative; z-index: 0; }
+  .logo-wall::before {
+    content: ""; position: absolute; left: 50%; top: 56%; transform: translate(-50%,-50%);
+    width: 72%; height: 170px; z-index: -1; pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(30,167,255,0.13), transparent 70%); filter: blur(8px);
+  }
+  .logo-wall-label { text-align: center; color: var(--text-3); font-family: var(--font-en); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; margin: 0 0 26px; }
+  .marquee { overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .marquee-track { display: flex; width: max-content; animation: marquee 36s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .logo-chip {
+    position: relative; flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+    padding: 0 52px; height: 60px; white-space: nowrap;
+    color: var(--text-2); opacity: .5; font-weight: 700; letter-spacing: .04em;
+    font-size: clamp(16px, 1.7vw, 21px); transition: opacity .3s ease, color .3s ease;
+  }
+  .logo-chip::after { content: ""; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 22px; background: var(--line); }
+  .logo-chip:hover { opacity: 1; color: var(--accent-2); }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none !important; } }
 
   /* ===== ロードマップ ===== */
   .roadmap { position: relative; margin-top: 20px; }
@@ -414,28 +472,11 @@
 <!-- ============ ヒーロー ============ -->
 <section class="hero" id="top">
   <div class="hero-grid" aria-hidden="true"></div>
-  <!-- 日本→中国を「つなぐ」接続ビジュアル（橋・光） -->
-  <svg class="hero-visual" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <defs>
-      <linearGradient id="arc1" x1="0" y1="1" x2="1" y2="0">
-        <stop offset="0" stop-color="#1EA7FF" stop-opacity="0.1"/>
-        <stop offset="1" stop-color="#5CC8FF" stop-opacity="0.9"/>
-      </linearGradient>
-      <radialGradient id="node" cx="0.5" cy="0.5" r="0.5">
-        <stop offset="0" stop-color="#5CC8FF"/>
-        <stop offset="1" stop-color="#1EA7FF" stop-opacity="0"/>
-      </radialGradient>
-    </defs>
-    <g fill="none" stroke="url(#arc1)" stroke-linecap="round">
-      <path d="M60,500 C120,300 380,260 560,70" stroke-width="2" stroke-dasharray="3 10" opacity="0.7"/>
-      <path d="M40,500 C140,320 360,300 540,120" stroke-width="3"/>
-      <path d="M90,500 C180,340 420,250 580,40" stroke-width="1.5" stroke-dasharray="2 14" opacity="0.5"/>
-    </g>
-    <circle cx="40" cy="500" r="30" fill="url(#node)"/>
-    <circle cx="560" cy="70" r="40" fill="url(#node)"/>
-    <circle cx="40" cy="500" r="5" fill="#5CC8FF"/>
-    <circle cx="560" cy="70" r="6" fill="#5CC8FF"/>
-  </svg>
+  <!-- 日本→中国を「つなぐ」接続ライン（21st.dev「Background Paths」を参考に vanilla 実装） -->
+  <div class="bg-paths" aria-hidden="true">
+    <svg viewBox="0 0 696 316" fill="none" preserveAspectRatio="xMidYMid slice"></svg>
+  </div>
+  <div class="hero-scrim" aria-hidden="true"></div>
 
   <div class="wrap hero-content reveal">
     <p class="eyebrow">JAPAN × CHINA / SALES CONNECTION</p>
@@ -617,6 +658,27 @@
       </div>
     </div>
     <p class="net-close reveal">日本商品の魅力を理解する現地パートナーと連携し、中国市場での販売接続を支援します。</p>
+
+    <div class="logo-wall reveal">
+      <p class="logo-wall-label">連携する販路・小売ネットワーク</p>
+      <div class="marquee">
+        <div class="marquee-track">
+          <span class="logo-chip">株式会社HAYI</span>
+          <span class="logo-chip">DAZZLE FASHION</span>
+          <span class="logo-chip">北京 SKP</span>
+          <span class="logo-chip">上海 恒隆広場</span>
+          <span class="logo-chip">上海 新天地</span>
+          <span class="logo-chip">久光百貨</span>
+          <!-- シームレスループ用の複製 -->
+          <span class="logo-chip" aria-hidden="true">株式会社HAYI</span>
+          <span class="logo-chip" aria-hidden="true">DAZZLE FASHION</span>
+          <span class="logo-chip" aria-hidden="true">北京 SKP</span>
+          <span class="logo-chip" aria-hidden="true">上海 恒隆広場</span>
+          <span class="logo-chip" aria-hidden="true">上海 新天地</span>
+          <span class="logo-chip" aria-hidden="true">久光百貨</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -746,7 +808,7 @@
       </div>
 
       <!-- HubSpotフォーム埋め込み枠：このform-cardの中身をHubSpotフォームタグに差し替え -->
-      <div class="form-card reveal d1">
+      <div class="form-card beam reveal d1">
         <h3>無料相談お申し込み</h3>
         <p class="hs-hint">※ 実装時、この枠内をHubSpotのフォーム埋め込みタグに差し替えてください。</p>
         <form id="contactForm" novalidate>
@@ -880,6 +942,40 @@
       form.reset();
     });
   }
+
+  /* ===== Background Paths（21st.dev 参考）：流れる接続ラインを動的生成 ===== */
+  (function buildBackgroundPaths() {
+    var svg = document.querySelector('.bg-paths svg');
+    if (!svg) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    [1, -1].forEach(function (position) {
+      for (var i = 0; i < 36; i++) {
+        var a = 380 - i * 5 * position;
+        var b = 312 - i * 5 * position;
+        var c = 152 - i * 5 * position;
+        var e = 616 - i * 5 * position;
+        var f = 684 - i * 5 * position;
+        var d = 'M-' + a + ' -' + (189 + i * 6) +
+                'C-' + a + ' -' + (189 + i * 6) +
+                ' -' + b + ' ' + (216 - i * 6) +
+                ' ' + c + ' ' + (343 - i * 6) +
+                'C' + e + ' ' + (470 - i * 6) +
+                ' ' + f + ' ' + (875 - i * 6) +
+                ' ' + f + ' ' + (875 - i * 6);
+        var p = document.createElementNS(NS, 'path');
+        p.setAttribute('d', d);
+        p.setAttribute('stroke', 'currentColor');
+        p.setAttribute('stroke-width', (0.5 + i * 0.05).toFixed(2));
+        p.setAttribute('stroke-opacity', (0.07 + i * 0.022).toFixed(3));
+        p.setAttribute('fill', 'none');
+        p.setAttribute('pathLength', '1');
+        p.style.strokeDasharray = '0.5 0.5';
+        p.style.animationDuration = (16 + (i % 12) * 1.6).toFixed(1) + 's';
+        p.style.animationDelay = '-' + (i * 0.7).toFixed(1) + 's';
+        svg.appendChild(p);
+      }
+    });
+  })();
 })();
 </script>
 </body>
