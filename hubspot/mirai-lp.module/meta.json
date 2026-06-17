@@ -1,0 +1,10 @@
+{
+  "label": "Mirai Partner LP",
+  "help_text": "株式会社Miraiパートナーのランディングページ一式（1モジュールで完結）。空のランディングページ／サイトページに配置して使用します。",
+  "host_template_types": ["PAGE"],
+  "global": false,
+  "is_available_for_new_content": true,
+  "smart_type": "NOT_SMART",
+  "css_assets": [],
+  "external_js": []
+}
