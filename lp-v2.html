@@ -195,15 +195,14 @@
   .flow { max-width: 760px; margin: 0 auto; }
   .step { display: grid; grid-template-columns: 92px 1fr; gap: 26px; position: relative; padding-bottom: 34px; }
   .step:not(:last-child)::before { content: ""; position: absolute; left: 45px; top: 78px; bottom: -6px; width: 2px; background: linear-gradient(var(--gold), rgba(174,141,89,.25)); }
-  .step__no { width: 90px; height: 90px; border-radius: 50%; border: 2px solid var(--gold); background: #fff; display: grid; place-items: center; text-align: center; box-shadow: 0 8px 20px rgba(174,141,89,.18); }
-  .step__no small { font-family: var(--label); font-size: 10px; letter-spacing: .12em; color: var(--gold); display: block; }
-  .step__no b { font-family: var(--serif); font-size: 26px; color: var(--navy); line-height: 1; }
+  .step__no { width: 88px; height: 88px; border-radius: 50%; border: none; background: linear-gradient(155deg, #173E7E, var(--navy)); display: grid; place-items: center; text-align: center; box-shadow: 0 12px 26px rgba(11,42,94,.26); }
+  .step__no small { font-family: var(--label); font-size: 10px; letter-spacing: .12em; color: var(--gold); display: block; margin-bottom: 2px; }
+  .step__no b { font-family: var(--serif); font-size: 28px; color: #fff; line-height: 1; }
   .step__c { padding-top: 8px; }
   .step__c h3 { font-family: var(--serif); font-size: 21px; color: var(--navy); margin: 0 0 8px; }
   .step__c p { font-size: 14px; color: var(--muted); margin: 0; }
-  .step.goal .step__no { background: var(--navy); border-color: var(--navy); }
-  .step.goal .step__no b, .step.goal .step__no small { color: #fff; }
-  .step.goal .step__no small { color: var(--gold); }
+  .step.goal .step__no { background: linear-gradient(150deg, #C6A465, var(--gold-2)); box-shadow: 0 12px 26px rgba(140,111,62,.34); }
+  .step.goal .step__no small, .step.goal .step__no b { color: #fff; }
 
   /* ===== 料金 ===== */
   .price-wrap { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: 0 8px 26px rgba(11,42,94,.06); max-width: 920px; margin: 0 auto; }
