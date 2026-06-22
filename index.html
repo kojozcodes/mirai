@@ -101,11 +101,12 @@
   .nav-in a:hover { color: var(--gold); }
   .nav-toggle { display: none; }
 
-  /* ===== ヒーロー ===== */
-  /* スプリットヒーロー：左=白パネル（テキスト視認性最大）, 右=写真 */
-  .hero { margin-top: 120px; display: grid; grid-template-columns: 1.02fr 0.98fr; align-items: stretch; min-height: 660px; }
-  .hero-left { display: flex; align-items: center; background: var(--bg); padding: 68px clamp(28px, 6vw, 84px); }
-  .hero-img { background: url("assets/img/v2-hero.jpg") center / cover no-repeat; min-height: 660px; }
+  /* ===== ヒーロー（全幅背景画像 + テキストオーバーレイ・フルハイト） ===== */
+  .hero { margin-top: 120px; min-height: calc(100vh - 120px); display: flex; align-items: center; padding: 48px 0;
+    background: url("assets/img/v2-hero.jpg") center / cover no-repeat; position: relative; }
+  .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.93) 44%, rgba(255,255,255,.72) 58%, rgba(255,255,255,.28) 76%, rgba(255,255,255,0) 100%); }
+  .hero .wrap { position: relative; z-index: 1; }
   .hero-copy { max-width: 600px; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: #fff; font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 3px; letter-spacing: .04em; margin-bottom: 22px; }
   .hero-badge::before { content: ""; width: 7px; height: 7px; background: var(--accent); border-radius: 50%; }
@@ -185,8 +186,8 @@
   .reason--alt .reason__img { order: 2; }
   .reason__num { font-family: var(--serif); font-size: 56px; color: var(--gold); font-weight: 700; line-height: .9; }
   .reason__body h3 { font-family: var(--serif); font-size: clamp(24px, 2.7vw, 32px); font-weight: 700; margin: 8px 0 18px; line-height: 1.55; }
-  .reason__lead { color: var(--gold); font-weight: 700; font-size: 16.5px; margin: 0 0 12px; }
-  .reason__body p { color: rgba(255,255,255,.86); font-size: 15px; margin: 0; line-height: 1.95; }
+  .reason__lead { color: var(--gold); font-weight: 700; font-size: 16.5px; margin: 0 0 12px; max-width: 480px; }
+  .reason__body p { color: rgba(255,255,255,.86); font-size: 15px; margin: 0; line-height: 1.95; max-width: 480px; }
 
   /* ===== 経営陣 ===== */
   .exec { display: flex; gap: 30px; align-items: flex-start; }
@@ -272,8 +273,7 @@
   @media (max-width: 980px) {
     .g4 { grid-template-columns: repeat(2,1fr); }
     .g3, .g2, .compare, .contact-grid { grid-template-columns: 1fr; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-img { min-height: 300px; order: -1; }
+    .hero::before { background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.85)); }
     .lead-form { max-width: 460px; }
     .reason { grid-template-columns: 1fr; }
     .reason--alt .reason__img { order: 0; }
@@ -289,9 +289,7 @@
     .util-cta .btn span { display: none; }
     .util-cta .btn { padding: 12px 14px; }
     .nav { display: none; }
-    .hero { margin-top: 70px; min-height: auto; }
-    .hero-img { min-height: 230px; }
-    .hero-left { padding: 40px 22px; }
+    .hero { margin-top: 70px; min-height: calc(100vh - 70px); padding: 40px 0; }
     .brand-name span { display: none; }
     table.price td, table.price th { padding: 13px 14px; }
     table.price .price { font-size: 18px; }
@@ -335,8 +333,8 @@
 </header>
 
 <!-- ============ ヒーロー ============ -->
-<section class="hero" id="top">
-  <div class="hero-left">
+<section class="hero" id="top" role="img" aria-label="日本と中国のビジネスをつなぐ握手">
+  <div class="wrap">
     <div class="hero-copy">
       <span class="hero-badge">日本 × 中国 ／ 販売接続モデル</span>
       <h1>日本のものづくりと、<br><span class="g">中国小売ネットワーク</span>をつなぐ</h1>
@@ -352,7 +350,6 @@
       </div>
     </div>
   </div>
-  <div class="hero-img" role="img" aria-label="日本と中国のビジネスをつなぐ握手"></div>
 </section>
 
 <!-- ============ 価値3点 ============ -->
