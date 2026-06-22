@@ -12,7 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho:wght@400;700&family=Montserrat:wght@600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@600;700;900&display=swap" rel="stylesheet" />
 
 <style>
   :root {
@@ -36,8 +36,8 @@
     --bg-soft: #F4F7FC;    /* ごく薄いブルーグレー帯 */
     --bg-soft-2: #EAF0F8;
 
-    /* 参考サイトと同一の UD明朝（Google Fonts の BIZ UDPMincho）＋ システム明朝フォールバック */
-    --serif: 'BIZ UDPMincho', 'udmincho', 'MS Mincho', 'ヒラギノ明朝 ProN', 'Hiragino Mincho ProN', serif;
+    /* 見出しを太く出せる明朝（Noto Serif JP は 900 まで）＋ UD明朝/システム明朝フォールバック */
+    --serif: 'Noto Serif JP', 'BIZ UDPMincho', 'udmincho', 'MS Mincho', 'ヒラギノ明朝 ProN', 'Hiragino Mincho ProN', serif;
     --sans: Helvetica, Arial, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
     --label: 'Montserrat', Helvetica, sans-serif;
     --maxw: 1140px;
@@ -47,12 +47,12 @@
   html { scroll-behavior: smooth; scroll-padding-top: 130px; }
   body {
     margin: 0; font-family: var(--sans); color: var(--ink); background: var(--bg);
-    font-weight: 500; line-height: 1.85; letter-spacing: .02em; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    font-weight: 600; line-height: 1.85; letter-spacing: .02em; -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
   /* 全体的に文字を太く：明朝の小見出しは weight 未指定だと 400 になるため 700 を明示 */
-  .value b, .wall h3, .contrast-head, .exec h3, .pcard h3, .step__no b, .step__c h3,
+  .wall h3, .contrast-head, .exec h3, .pcard h3, .step__no b, .step__c h3,
   .channel b, .net-logos span, .lead-form__head b { font-weight: 700; }
-  .reason__body p, .exec p, .pcard p, .step__c p, .wall p, .sec-lead, .channel small { font-weight: 500; }
+  .reason__body p, .exec p, .pcard p, .step__c p, .wall p, .sec-lead, .channel small { font-weight: 600; }
   img { max-width: 100%; display: block; }
   a { color: inherit; text-decoration: none; }
   ul { margin: 0; padding: 0; list-style: none; }
@@ -96,7 +96,7 @@
   .util-cta .btn { padding: 12px 20px; font-size: 14px; }
   .nav { background: var(--navy); }
   .nav-in { display: flex; align-items: center; justify-content: center; height: 50px; gap: 0; }
-  .nav-in a { color: #fff; font-size: 14px; font-weight: 600; padding: 0 26px; line-height: 50px; position: relative; transition: color .2s; }
+  .nav-in a { color: #fff; font-size: 14px; font-weight: 700; padding: 0 26px; line-height: 50px; position: relative; transition: color .2s; }
   .nav-in a + a::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 16px; background: rgba(255,255,255,.18); }
   .nav-in a:hover { color: var(--gold); }
   .nav-toggle { display: none; }
@@ -109,9 +109,9 @@
   .hero-copy { max-width: 560px; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: #fff; font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 3px; letter-spacing: .04em; margin-bottom: 22px; }
   .hero-badge::before { content: ""; width: 7px; height: 7px; background: var(--accent); border-radius: 50%; }
-  .hero h1 { font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: clamp(28px, 4vw, 43px); line-height: 1.45; margin: 0 0 22px; letter-spacing: .01em; }
+  .hero h1 { font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: clamp(25px, 3.2vw, 37px); line-height: 1.4; margin: 0 0 22px; letter-spacing: .005em; word-break: keep-all; overflow-wrap: anywhere; }
   .hero h1 .g { color: var(--accent); }
-  .hero-sub { font-size: 17px; color: var(--ink); font-weight: 600; margin: 0 0 26px; text-wrap: pretty; }
+  .hero-sub { font-size: 17px; color: var(--ink); font-weight: 700; margin: 0 0 26px; text-wrap: pretty; }
   .hero-points { display: flex; gap: 10px; flex-wrap: wrap; }
   .hero-point { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 4px; padding: 9px 16px; font-size: 14px; font-weight: 700; color: var(--navy); }
   .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
@@ -254,7 +254,7 @@
   .channel .note { font-size: 12px; color: var(--gold-2); }
 
   /* ===== フッター ===== */
-  .foot { background: var(--navy-2); color: rgba(255,255,255,.72); padding: 56px 0 30px; }
+  .foot { background: var(--gold-2); color: rgba(255,255,255,.82); padding: 56px 0 30px; }
   .foot-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
   .foot .brand-name b { color: #fff; }
   .foot-meta { font-size: 13.5px; line-height: 2; text-align: right; }
@@ -300,6 +300,11 @@
 
   /* 背景画像は CTA バンドのみに集約（コンタクトは clean light）。モバイルは固定背景を解除 */
   @media (max-width: 680px) { .cta-band { background-attachment: scroll; } }
+
+  /* 見出し（明朝）を最大ウェイト 900 に：Noto Serif JP の Black で力強く。末尾に置き個別の 700 指定を上書き */
+  .hero h1, .sec-title, .cta-band h2, .reason__body h3,
+  .reason__num, .wall .num, .value b, .channel b { font-weight: 900; }
+  .sec-title, .hero h1 { letter-spacing: .005em; }
 </style>
 </head>
 <body>
