@@ -12,7 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho:wght@400;700&family=Montserrat:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
 
 <style>
   :root {
@@ -30,9 +30,10 @@
     --bg-soft: #F5F6F8;    /* ライトグレー帯 */
     --bg-soft-2: #EEF1F5;
 
-    --serif: 'Noto Serif JP', 'YuMincho', 'Hiragino Mincho ProN', serif;
-    --sans: 'Noto Sans JP', system-ui, sans-serif;
-    --label: 'Montserrat', 'Noto Sans JP', sans-serif;
+    /* 参考サイトと同一の UD明朝（Google Fonts の BIZ UDPMincho）＋ システム明朝フォールバック */
+    --serif: 'BIZ UDPMincho', 'udmincho', 'MS Mincho', 'ヒラギノ明朝 ProN', 'Hiragino Mincho ProN', serif;
+    --sans: Helvetica, Arial, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
+    --label: 'Montserrat', Helvetica, sans-serif;
     --maxw: 1140px;
     --radius: 8px;
   }
@@ -45,6 +46,7 @@
   img { max-width: 100%; display: block; }
   a { color: inherit; text-decoration: none; }
   ul { margin: 0; padding: 0; list-style: none; }
+  p { text-wrap: pretty; }  /* 日本語の孤立文字（行末の「す。」等）を防ぐ */
 
   .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
   .block { padding: 100px 0; position: relative; }
@@ -53,9 +55,9 @@
   /* ===== セクション見出し（中央・明朝） ===== */
   .sec-head { text-align: center; margin: 0 auto 56px; max-width: 800px; }
   .sec-label { font-family: var(--label); font-size: 13px; letter-spacing: .22em; color: var(--gold); font-weight: 700; text-transform: uppercase; display: inline-block; margin-bottom: 14px; }
-  .sec-title { font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: clamp(26px, 3.6vw, 38px); line-height: 1.45; margin: 0; }
+  .sec-title { font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: clamp(26px, 3.6vw, 38px); line-height: 1.45; margin: 0; text-wrap: balance; }
   .sec-title .g { color: var(--gold); }
-  .sec-lead { color: var(--muted); font-size: 15.5px; margin: 18px auto 0; max-width: 680px; }
+  .sec-lead { color: var(--muted); font-size: 15.5px; margin: 18px auto 0; max-width: 660px; text-wrap: pretty; word-break: auto-phrase; }
 
   /* ===== ボタン ===== */
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-weight: 700; font-size: 15px; padding: 15px 30px; border-radius: 4px; cursor: pointer; border: none; transition: transform .2s, box-shadow .2s, background .2s; white-space: nowrap; font-family: var(--sans); }
@@ -90,16 +92,16 @@
   /* ===== ヒーロー ===== */
   .hero { position: relative; margin-top: 120px; min-height: 640px; display: flex; align-items: center;
     background: url("assets/img/v2-hero.jpg") center right / cover no-repeat; }
-  .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, #fff 0%, rgba(255,255,255,.94) 38%, rgba(255,255,255,.55) 56%, rgba(255,255,255,0) 78%); }
+  .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(255,255,255,.60) 0%, rgba(255,255,255,.16) 30%, rgba(255,255,255,0) 50%); }
   .hero-in { position: relative; display: grid; grid-template-columns: 1fr 380px; gap: 40px; align-items: center; width: 100%; padding: 64px 24px; }
   .hero-copy { max-width: 600px; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: #fff; font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 3px; letter-spacing: .04em; margin-bottom: 22px; }
   .hero-badge::before { content: ""; width: 7px; height: 7px; background: var(--gold); border-radius: 50%; }
-  .hero h1 { font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: clamp(30px, 4.6vw, 50px); line-height: 1.42; margin: 0 0 22px; letter-spacing: .01em; }
+  .hero h1 { font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: clamp(28px, 4vw, 43px); line-height: 1.45; margin: 0 0 22px; letter-spacing: .01em; }
   .hero h1 .g { color: var(--gold); }
-  .hero-sub { font-size: 17px; color: var(--ink); font-weight: 500; margin: 0 0 26px; }
+  .hero-sub { font-size: 17px; color: var(--ink); font-weight: 500; margin: 0 0 26px; text-wrap: pretty; }
   .hero-points { display: flex; gap: 10px; flex-wrap: wrap; }
-  .hero-point { background: rgba(11,42,94,.06); border: 1px solid rgba(11,42,94,.12); border-radius: 4px; padding: 9px 16px; font-size: 14px; font-weight: 700; color: var(--navy); }
+  .hero-point { background: rgba(255,255,255,.86); border: 1px solid rgba(11,42,94,.14); border-radius: 4px; padding: 9px 16px; font-size: 14px; font-weight: 700; color: var(--navy); box-shadow: 0 2px 8px rgba(11,42,94,.08); }
   .hero-point b { color: var(--gold); font-family: var(--serif); }
 
   /* ヒーロー内 リードフォーム */
@@ -169,7 +171,7 @@
   .reason__body { background: var(--navy); color: #fff; padding: 56px 54px; display: flex; flex-direction: column; justify-content: center; }
   .reason--alt .reason__img { order: 2; }
   .reason__num { font-family: var(--serif); font-size: 56px; color: var(--gold); font-weight: 700; line-height: .9; }
-  .reason__body h3 { font-family: var(--serif); font-size: clamp(22px, 2.4vw, 28px); font-weight: 600; margin: 8px 0 18px; line-height: 1.5; }
+  .reason__body h3 { font-family: var(--serif); font-size: clamp(22px, 2.4vw, 28px); font-weight: 700; margin: 8px 0 18px; line-height: 1.55; }
   .reason__lead { color: var(--gold); font-weight: 700; font-size: 15.5px; margin: 0 0 12px; }
   .reason__body p { color: rgba(255,255,255,.86); font-size: 15px; margin: 0; line-height: 1.95; }
 
@@ -195,9 +197,9 @@
   .flow { max-width: 760px; margin: 0 auto; }
   .step { display: grid; grid-template-columns: 92px 1fr; gap: 26px; position: relative; padding-bottom: 34px; }
   .step:not(:last-child)::before { content: ""; position: absolute; left: 45px; top: 78px; bottom: -6px; width: 2px; background: linear-gradient(var(--gold), rgba(174,141,89,.25)); }
-  .step__no { width: 88px; height: 88px; border-radius: 50%; border: none; background: linear-gradient(155deg, #173E7E, var(--navy)); display: grid; place-items: center; text-align: center; box-shadow: 0 12px 26px rgba(11,42,94,.26); }
-  .step__no small { font-family: var(--label); font-size: 10px; letter-spacing: .12em; color: var(--gold); display: block; margin-bottom: 2px; }
-  .step__no b { font-family: var(--serif); font-size: 28px; color: #fff; line-height: 1; }
+  .step__no { width: 88px; height: 88px; border-radius: 50%; border: none; background: linear-gradient(155deg, #173E7E, var(--navy)); display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; text-align: center; box-shadow: 0 12px 26px rgba(11,42,94,.26); }
+  .step__no small { font-family: var(--label); font-size: 10px; letter-spacing: .1em; color: var(--gold); margin: 0 0 4px; line-height: 1; }
+  .step__no b { font-family: var(--serif); font-size: 26px; color: #fff; line-height: 1; display: block; }
   .step__c { padding-top: 8px; }
   .step__c h3 { font-family: var(--serif); font-size: 21px; color: var(--navy); margin: 0 0 8px; }
   .step__c p { font-size: 14px; color: var(--muted); margin: 0; }
@@ -218,10 +220,10 @@
   .bonus em { color: var(--gold-2); font-style: normal; font-family: var(--serif); font-size: 22px; }
 
   /* ===== ネイビーCTAバンド ===== */
-  .cta-band { background: var(--navy-2); color: #fff; text-align: center; position: relative; overflow: hidden; }
+  .cta-band { background-image: linear-gradient(rgba(6,27,61,.84), rgba(6,27,61,.92)), url("assets/img/v2-china.jpg"); background-size: cover; background-position: center; background-attachment: fixed; color: #fff; text-align: center; position: relative; overflow: hidden; }
   .cta-band::after { content: ""; position: absolute; inset: 0; background: radial-gradient(800px 300px at 50% 0%, rgba(174,141,89,.16), transparent 70%); pointer-events: none; }
   .cta-band .sec-label { color: var(--gold); }
-  .cta-band h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(24px, 3.4vw, 36px); line-height: 1.5; margin: 0 0 14px; position: relative; }
+  .cta-band h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(24px, 3.4vw, 36px); line-height: 1.5; margin: 0 0 14px; position: relative; }
   .cta-band h2 .g { color: var(--gold); }
   .cta-band p { color: rgba(255,255,255,.8); margin: 0 0 30px; position: relative; }
 
@@ -279,6 +281,14 @@
     table.price .price { font-size: 18px; }
     .reason__body { padding: 36px 26px; }
   }
+
+  /* お問い合わせ：背景画像（パララックス）＋ ネイビーオーバーレイ（白カードが映える） */
+  #contact { background-image: linear-gradient(rgba(6,27,61,.82), rgba(6,27,61,.90)), url("assets/img/v2-team.jpg"); background-size: cover; background-position: center; background-attachment: fixed; }
+  #contact .sec-title { color: #fff; }
+  #contact .sec-lead { color: rgba(255,255,255,.85); }
+  #contact .sec-label { color: var(--gold); }
+  /* モバイルは固定背景が不安定なため通常スクロールに切替 */
+  @media (max-width: 680px) { .cta-band, #contact { background-attachment: scroll; } }
 </style>
 </head>
 <body>
