@@ -21,6 +21,8 @@
     --navy-2: #07203F;     /* 深ネイビー（フッター等） */
     --gold: #1E88E5;       /* ブルーアクセント（旧ゴールド枠を流用） */
     --gold-2: #1466C4;     /* 濃いブルー */
+    --accent: #E0740D;     /* 補色アクセント：アンバーオレンジ（ブルーの補色） */
+    --accent-2: #C25E08;   /* 濃いオレンジ（ホバー） */
     --red: #0E2A5E;        /* 電話CTA：ネイビー（赤は不採用） */
     --red-2: #07203F;
     --ink: #1E2530;        /* 本文 */
@@ -56,7 +58,7 @@
   .sec-head { text-align: center; margin: 0 auto 56px; max-width: 800px; }
   .sec-label { font-family: var(--label); font-size: 13px; letter-spacing: .22em; color: var(--gold); font-weight: 700; text-transform: uppercase; display: inline-block; margin-bottom: 14px; }
   .sec-title { font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: clamp(26px, 3.6vw, 38px); line-height: 1.45; margin: 0; text-wrap: balance; }
-  .sec-title .g { color: var(--gold); }
+  .sec-title .g { color: var(--accent); }
   .sec-lead { color: var(--muted); font-size: 15.5px; margin: 18px auto 0; max-width: 660px; text-wrap: pretty; word-break: auto-phrase; }
 
   /* ===== ボタン ===== */
@@ -66,8 +68,8 @@
   .btn-outline { background: transparent; color: var(--navy); border: 1.5px solid rgba(14,42,94,.30); }
   .btn-outline:hover { border-color: var(--navy); background: rgba(14,42,94,.04); transform: translateY(-2px); }
   .btn-red:hover { background: var(--red-2); transform: translateY(-2px); }
-  .btn-gold { background: var(--gold); color: #fff; }
-  .btn-gold:hover { transform: translateY(-2px); background: var(--gold-2); }
+  .btn-gold { background: var(--accent); color: #fff; }
+  .btn-gold:hover { transform: translateY(-2px); background: var(--accent-2); }
   .btn-navy { background: var(--navy); color: #fff; }
   .btn-navy:hover { background: var(--navy-2); transform: translateY(-2px); }
   .btn-lg { padding: 18px 44px; font-size: 16px; }
@@ -98,9 +100,9 @@
   .hero-img { background: url("assets/img/v2-hero.jpg") center / cover no-repeat; min-height: 560px; }
   .hero-copy { max-width: 560px; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: #fff; font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 3px; letter-spacing: .04em; margin-bottom: 22px; }
-  .hero-badge::before { content: ""; width: 7px; height: 7px; background: var(--gold); border-radius: 50%; }
+  .hero-badge::before { content: ""; width: 7px; height: 7px; background: var(--accent); border-radius: 50%; }
   .hero h1 { font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: clamp(28px, 4vw, 43px); line-height: 1.45; margin: 0 0 22px; letter-spacing: .01em; }
-  .hero h1 .g { color: var(--gold); }
+  .hero h1 .g { color: var(--accent); }
   .hero-sub { font-size: 17px; color: var(--ink); font-weight: 500; margin: 0 0 26px; text-wrap: pretty; }
   .hero-points { display: flex; gap: 10px; flex-wrap: wrap; }
   .hero-point { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 4px; padding: 9px 16px; font-size: 14px; font-weight: 700; color: var(--navy); }
@@ -227,7 +229,7 @@
   .cta-band::after { content: ""; position: absolute; inset: 0; background: radial-gradient(800px 300px at 50% 0%, rgba(46,155,234,.20), transparent 70%); pointer-events: none; }
   .cta-band .sec-label { color: var(--gold); }
   .cta-band h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(24px, 3.4vw, 36px); line-height: 1.5; margin: 0 0 14px; position: relative; }
-  .cta-band h2 .g { color: var(--gold); }
+  .cta-band h2 .g { color: var(--accent); }
   .cta-band p { color: rgba(255,255,255,.8); margin: 0 0 30px; position: relative; }
 
   /* ===== コンタクト ===== */
