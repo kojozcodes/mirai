@@ -8,9 +8,10 @@ manufacturers with established Chinese retail networks ("sales-connection" model
 ## About
 
 - Single self-contained `index.html` — vanilla HTML / CSS / JS, no build step.
-- Dark navy/black theme with blue accents, vertical-scroll, fully responsive (PC + mobile).
-- Sections: hero, problem, sales-connection model, strengths, team, partner network,
-  transaction roadmap, pricing, co-creation message, contact.
+- Light, photo-forward theme on a navy + blue base with warm amber-orange / brown
+  accents; bold mincho (serif) headings, vertical-scroll, fully responsive (PC + mobile).
+- Sections: hero, problem, sales-connection model, reasons to choose us, team,
+  partner network, transaction roadmap, pricing, co-creation message, contact.
 - Built to be portable to **HubSpot** (custom module / file manager): the contact form
   block and image placeholders (`[Brand Logo]`, `[Photo]`) are isolated for swapping.
 
