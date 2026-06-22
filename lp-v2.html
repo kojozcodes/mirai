@@ -12,7 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho:wght@400;700&family=Montserrat:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho:wght@400;700&family=Montserrat:wght@600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <style>
   :root {
@@ -47,8 +47,12 @@
   html { scroll-behavior: smooth; scroll-padding-top: 130px; }
   body {
     margin: 0; font-family: var(--sans); color: var(--ink); background: var(--bg);
-    line-height: 1.85; letter-spacing: .02em; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    font-weight: 500; line-height: 1.85; letter-spacing: .02em; -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
+  /* 全体的に文字を太く：明朝の小見出しは weight 未指定だと 400 になるため 700 を明示 */
+  .value b, .wall h3, .contrast-head, .exec h3, .pcard h3, .step__no b, .step__c h3,
+  .channel b, .net-logos span, .lead-form__head b { font-weight: 700; }
+  .reason__body p, .exec p, .pcard p, .step__c p, .wall p, .sec-lead, .channel small { font-weight: 500; }
   img { max-width: 100%; display: block; }
   a { color: inherit; text-decoration: none; }
   ul { margin: 0; padding: 0; list-style: none; }
@@ -92,7 +96,7 @@
   .util-cta .btn { padding: 12px 20px; font-size: 14px; }
   .nav { background: var(--navy); }
   .nav-in { display: flex; align-items: center; justify-content: center; height: 50px; gap: 0; }
-  .nav-in a { color: #fff; font-size: 14px; font-weight: 500; padding: 0 26px; line-height: 50px; position: relative; transition: color .2s; }
+  .nav-in a { color: #fff; font-size: 14px; font-weight: 600; padding: 0 26px; line-height: 50px; position: relative; transition: color .2s; }
   .nav-in a + a::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 16px; background: rgba(255,255,255,.18); }
   .nav-in a:hover { color: var(--gold); }
   .nav-toggle { display: none; }
@@ -107,7 +111,7 @@
   .hero-badge::before { content: ""; width: 7px; height: 7px; background: var(--accent); border-radius: 50%; }
   .hero h1 { font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: clamp(28px, 4vw, 43px); line-height: 1.45; margin: 0 0 22px; letter-spacing: .01em; }
   .hero h1 .g { color: var(--accent); }
-  .hero-sub { font-size: 17px; color: var(--ink); font-weight: 500; margin: 0 0 26px; text-wrap: pretty; }
+  .hero-sub { font-size: 17px; color: var(--ink); font-weight: 600; margin: 0 0 26px; text-wrap: pretty; }
   .hero-points { display: flex; gap: 10px; flex-wrap: wrap; }
   .hero-point { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 4px; padding: 9px 16px; font-size: 14px; font-weight: 700; color: var(--navy); }
   .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
@@ -250,11 +254,11 @@
   .channel .note { font-size: 12px; color: var(--gold-2); }
 
   /* ===== フッター ===== */
-  .foot { background: var(--brown-2); color: rgba(255,255,255,.72); padding: 56px 0 30px; }
+  .foot { background: var(--navy-2); color: rgba(255,255,255,.72); padding: 56px 0 30px; }
   .foot-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
   .foot .brand-name b { color: #fff; }
   .foot-meta { font-size: 13.5px; line-height: 2; text-align: right; }
-  .foot-meta a:hover { color: var(--accent); }
+  .foot-meta a:hover { color: var(--gold); }
   .foot-bottom { margin-top: 36px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.12); text-align: center; font-size: 12px; }
   .foot-bottom a { color: rgba(255,255,255,.6); }
 
