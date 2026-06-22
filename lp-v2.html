@@ -16,19 +16,19 @@
 
 <style>
   :root {
-    /* shukyaku-agent.com から抽出した実カラー */
-    --navy: #0B2A5E;       /* ネイビー（ナビ/バンド/見出し） */
-    --navy-2: #061B3D;     /* 深ネイビー（フッター/オーバーレイ） */
-    --gold: #AE8D59;       /* ゴールド（明朝アクセント） */
-    --gold-2: #8C6F3E;     /* 濃ゴールド */
-    --red: #9E1B1B;        /* レッド（電話CTA） */
-    --red-2: #7A0000;
-    --ink: #20262F;        /* 本文（ニアブラック #212121系） */
+    /* 我々のブランドカラー（ダークネイビー × ブルーアクセント） */
+    --navy: #0E2A5E;       /* ダークネイビー（ナビ/バンド/見出し） */
+    --navy-2: #07203F;     /* 深ネイビー（フッター等） */
+    --gold: #1E88E5;       /* ブルーアクセント（旧ゴールド枠を流用） */
+    --gold-2: #1466C4;     /* 濃いブルー */
+    --red: #0E2A5E;        /* 電話CTA：ネイビー（赤は不採用） */
+    --red-2: #07203F;
+    --ink: #1E2530;        /* 本文 */
     --muted: #5C6675;
     --line: #E4E7EC;
     --bg: #FFFFFF;
-    --bg-soft: #F5F6F8;    /* ライトグレー帯 */
-    --bg-soft-2: #EEF1F5;
+    --bg-soft: #F4F7FC;    /* ごく薄いブルーグレー帯 */
+    --bg-soft-2: #EAF0F8;
 
     /* 参考サイトと同一の UD明朝（Google Fonts の BIZ UDPMincho）＋ システム明朝フォールバック */
     --serif: 'BIZ UDPMincho', 'udmincho', 'MS Mincho', 'ヒラギノ明朝 ProN', 'Hiragino Mincho ProN', serif;
@@ -62,10 +62,12 @@
   /* ===== ボタン ===== */
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-weight: 700; font-size: 15px; padding: 15px 30px; border-radius: 4px; cursor: pointer; border: none; transition: transform .2s, box-shadow .2s, background .2s; white-space: nowrap; font-family: var(--sans); }
   .btn svg { width: 18px; height: 18px; fill: currentColor; }
-  .btn-red { background: var(--red); color: #fff; box-shadow: 0 6px 18px rgba(158,27,27,.22); }
+  .btn-red { background: var(--red); color: #fff; }
+  .btn-outline { background: transparent; color: var(--navy); border: 1.5px solid rgba(14,42,94,.30); }
+  .btn-outline:hover { border-color: var(--navy); background: rgba(14,42,94,.04); transform: translateY(-2px); }
   .btn-red:hover { background: var(--red-2); transform: translateY(-2px); }
-  .btn-gold { background: linear-gradient(180deg, var(--gold), var(--gold-2)); color: #fff; box-shadow: 0 6px 18px rgba(140,111,62,.28); }
-  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(140,111,62,.38); }
+  .btn-gold { background: var(--gold); color: #fff; }
+  .btn-gold:hover { transform: translateY(-2px); background: var(--gold-2); }
   .btn-navy { background: var(--navy); color: #fff; }
   .btn-navy:hover { background: var(--navy-2); transform: translateY(-2px); }
   .btn-lg { padding: 18px 44px; font-size: 16px; }
@@ -90,18 +92,19 @@
   .nav-toggle { display: none; }
 
   /* ===== ヒーロー ===== */
-  .hero { position: relative; margin-top: 120px; min-height: 640px; display: flex; align-items: center;
-    background: url("assets/img/v2-hero.jpg") center right / cover no-repeat; }
-  .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(255,255,255,.60) 0%, rgba(255,255,255,.16) 30%, rgba(255,255,255,0) 50%); }
-  .hero-in { position: relative; display: grid; grid-template-columns: 1fr 380px; gap: 40px; align-items: center; width: 100%; padding: 64px 24px; }
-  .hero-copy { max-width: 600px; }
+  /* スプリットヒーロー：左=白パネル（テキスト視認性最大）, 右=写真 */
+  .hero { margin-top: 120px; display: grid; grid-template-columns: 1.02fr 0.98fr; align-items: stretch; min-height: 560px; }
+  .hero-left { display: flex; align-items: center; background: var(--bg); padding: 56px clamp(28px, 6vw, 84px); }
+  .hero-img { background: url("assets/img/v2-hero.jpg") center / cover no-repeat; min-height: 560px; }
+  .hero-copy { max-width: 560px; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: #fff; font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 3px; letter-spacing: .04em; margin-bottom: 22px; }
   .hero-badge::before { content: ""; width: 7px; height: 7px; background: var(--gold); border-radius: 50%; }
   .hero h1 { font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: clamp(28px, 4vw, 43px); line-height: 1.45; margin: 0 0 22px; letter-spacing: .01em; }
   .hero h1 .g { color: var(--gold); }
   .hero-sub { font-size: 17px; color: var(--ink); font-weight: 500; margin: 0 0 26px; text-wrap: pretty; }
   .hero-points { display: flex; gap: 10px; flex-wrap: wrap; }
-  .hero-point { background: rgba(255,255,255,.86); border: 1px solid rgba(11,42,94,.14); border-radius: 4px; padding: 9px 16px; font-size: 14px; font-weight: 700; color: var(--navy); box-shadow: 0 2px 8px rgba(11,42,94,.08); }
+  .hero-point { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 4px; padding: 9px 16px; font-size: 14px; font-weight: 700; color: var(--navy); }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
   .hero-point b { color: var(--gold); font-family: var(--serif); }
 
   /* ヒーロー内 リードフォーム */
@@ -114,7 +117,7 @@
   .lf-field label { display: block; font-size: 12.5px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
   .lf-field label i { color: var(--red); font-style: normal; font-size: 10px; margin-left: 5px; }
   .lf-field input, .lf-field textarea, .lf-field select { width: 100%; padding: 11px 12px; border: 1px solid #CfD5DE; border-radius: 4px; font-size: 14px; font-family: var(--sans); background: #fff; color: var(--ink); }
-  .lf-field input:focus, .lf-field textarea:focus, .lf-field select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(174,141,89,.16); }
+  .lf-field input:focus, .lf-field textarea:focus, .lf-field select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(30,136,229,.16); }
   .lead-form .btn-gold { width: 100%; margin-top: 4px; padding: 15px; }
   .lf-note { font-size: 11px; color: var(--muted); text-align: center; margin: 10px 0 0; }
 
@@ -196,14 +199,14 @@
   /* ===== ロードマップ（サービスの流れ） ===== */
   .flow { max-width: 760px; margin: 0 auto; }
   .step { display: grid; grid-template-columns: 92px 1fr; gap: 26px; position: relative; padding-bottom: 34px; }
-  .step:not(:last-child)::before { content: ""; position: absolute; left: 45px; top: 78px; bottom: -6px; width: 2px; background: linear-gradient(var(--gold), rgba(174,141,89,.25)); }
-  .step__no { width: 88px; height: 88px; border-radius: 50%; border: none; background: linear-gradient(155deg, #173E7E, var(--navy)); display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; text-align: center; box-shadow: 0 12px 26px rgba(11,42,94,.26); }
+  .step:not(:last-child)::before { content: ""; position: absolute; left: 45px; top: 78px; bottom: -6px; width: 2px; background: linear-gradient(var(--gold), rgba(30,136,229,.22)); }
+  .step__no { width: 88px; height: 88px; border-radius: 50%; border: none; background: linear-gradient(155deg, #1A4488, var(--navy)); display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; text-align: center; box-shadow: 0 8px 18px rgba(14,42,94,.16); }
   .step__no small { font-family: var(--label); font-size: 10px; letter-spacing: .1em; color: var(--gold); margin: 0 0 4px; line-height: 1; }
   .step__no b { font-family: var(--serif); font-size: 26px; color: #fff; line-height: 1; display: block; }
   .step__c { padding-top: 8px; }
   .step__c h3 { font-family: var(--serif); font-size: 21px; color: var(--navy); margin: 0 0 8px; }
   .step__c p { font-size: 14px; color: var(--muted); margin: 0; }
-  .step.goal .step__no { background: linear-gradient(150deg, #C6A465, var(--gold-2)); box-shadow: 0 12px 26px rgba(140,111,62,.34); }
+  .step.goal .step__no { background: linear-gradient(150deg, #3AA0EE, var(--gold-2)); box-shadow: 0 8px 18px rgba(14,42,94,.20); }
   .step.goal .step__no small, .step.goal .step__no b { color: #fff; }
 
   /* ===== 料金 ===== */
@@ -216,12 +219,12 @@
   table.price .price { font-family: var(--serif); font-weight: 700; color: var(--gold-2); font-size: 22px; width: 24%; }
   table.price .price.free { color: var(--navy); }
   .price-note { font-size: 12.5px; color: var(--muted); margin: 14px auto 0; max-width: 920px; }
-  .bonus { max-width: 920px; margin: 26px auto 0; background: #FBF7EF; border: 1px solid var(--gold); border-radius: var(--radius); padding: 20px 26px; text-align: center; color: var(--navy); font-weight: 700; font-size: 17px; }
+  .bonus { max-width: 920px; margin: 26px auto 0; background: #EEF5FD; border: 1px solid var(--gold); border-radius: var(--radius); padding: 20px 26px; text-align: center; color: var(--navy); font-weight: 700; font-size: 17px; }
   .bonus em { color: var(--gold-2); font-style: normal; font-family: var(--serif); font-size: 22px; }
 
   /* ===== ネイビーCTAバンド ===== */
-  .cta-band { background-image: linear-gradient(rgba(6,27,61,.84), rgba(6,27,61,.92)), url("assets/img/v2-china.jpg"); background-size: cover; background-position: center; background-attachment: fixed; color: #fff; text-align: center; position: relative; overflow: hidden; }
-  .cta-band::after { content: ""; position: absolute; inset: 0; background: radial-gradient(800px 300px at 50% 0%, rgba(174,141,89,.16), transparent 70%); pointer-events: none; }
+  .cta-band { background-image: linear-gradient(rgba(8,28,62,.72), rgba(6,24,54,.88)), url("assets/img/v2-cta.jpg"); background-size: cover; background-position: center; background-attachment: fixed; color: #fff; text-align: center; position: relative; overflow: hidden; }
+  .cta-band::after { content: ""; position: absolute; inset: 0; background: radial-gradient(800px 300px at 50% 0%, rgba(46,155,234,.20), transparent 70%); pointer-events: none; }
   .cta-band .sec-label { color: var(--gold); }
   .cta-band h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(24px, 3.4vw, 36px); line-height: 1.5; margin: 0 0 14px; position: relative; }
   .cta-band h2 .g { color: var(--gold); }
@@ -258,7 +261,8 @@
   @media (max-width: 980px) {
     .g4 { grid-template-columns: repeat(2,1fr); }
     .g3, .g2, .compare, .contact-grid { grid-template-columns: 1fr; }
-    .hero-in { grid-template-columns: 1fr; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-img { min-height: 300px; order: -1; }
     .lead-form { max-width: 460px; }
     .reason { grid-template-columns: 1fr; }
     .reason--alt .reason__img { order: 0; }
@@ -274,21 +278,17 @@
     .util-cta .btn span { display: none; }
     .util-cta .btn { padding: 12px 14px; }
     .nav { display: none; }
-    .hero { margin-top: 70px; background-position: center; }
-    .hero::before { background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.86)); }
+    .hero { margin-top: 70px; min-height: auto; }
+    .hero-img { min-height: 230px; }
+    .hero-left { padding: 40px 22px; }
     .brand-name span { display: none; }
     table.price td, table.price th { padding: 13px 14px; }
     table.price .price { font-size: 18px; }
     .reason__body { padding: 36px 26px; }
   }
 
-  /* お問い合わせ：背景画像（パララックス）＋ ネイビーオーバーレイ（白カードが映える） */
-  #contact { background-image: linear-gradient(rgba(6,27,61,.82), rgba(6,27,61,.90)), url("assets/img/v2-team.jpg"); background-size: cover; background-position: center; background-attachment: fixed; }
-  #contact .sec-title { color: #fff; }
-  #contact .sec-lead { color: rgba(255,255,255,.85); }
-  #contact .sec-label { color: var(--gold); }
-  /* モバイルは固定背景が不安定なため通常スクロールに切替 */
-  @media (max-width: 680px) { .cta-band, #contact { background-attachment: scroll; } }
+  /* 背景画像は CTA バンドのみに集約（コンタクトは clean light）。モバイルは固定背景を解除 */
+  @media (max-width: 680px) { .cta-band { background-attachment: scroll; } }
 </style>
 </head>
 <body>
@@ -320,7 +320,7 @@
 
 <!-- ============ ヒーロー ============ -->
 <section class="hero" id="top">
-  <div class="wrap hero-in">
+  <div class="hero-left">
     <div class="hero-copy">
       <span class="hero-badge">日本 × 中国 ／ 販売接続モデル</span>
       <h1>日本のものづくりと、<br><span class="g">中国小売ネットワーク</span>をつなぐ</h1>
@@ -330,24 +330,13 @@
         <span class="hero-point">現地法人 <b>不要</b></span>
         <span class="hero-point">まず<b>小さく試せる</b></span>
       </div>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-gold btn-lg">まずは無料で相談する</a>
+        <a href="#model" class="btn btn-outline btn-lg">事業内容を見る</a>
+      </div>
     </div>
-
-    <!-- ヒーロー内 リードフォーム（HubSpotフォーム差し替え想定） -->
-    <form class="lead-form" id="heroForm" novalidate>
-      <div class="lead-form__head">
-        <b>無料相談・お問い合わせ</b>
-        <span>2営業日以内にご返信いたします</span>
-      </div>
-      <div class="lead-form__body">
-        <div class="lf-field"><label>会社名<i>必須</i></label><input type="text" name="company" placeholder="株式会社〇〇" required /></div>
-        <div class="lf-field"><label>ご担当者名<i>必須</i></label><input type="text" name="name" placeholder="山田 太郎" required /></div>
-        <div class="lf-field"><label>メールアドレス<i>必須</i></label><input type="email" name="email" placeholder="you@example.com" required /></div>
-        <div class="lf-field"><label>ご相談内容<i>必須</i></label><textarea name="message" rows="3" placeholder="商品の概要・ご相談内容など" required></textarea></div>
-        <button type="submit" class="btn btn-gold">この内容で送信する</button>
-        <p class="lf-note">「送信」をもってプライバシーポリシーに同意したものとみなします。</p>
-      </div>
-    </form>
   </div>
+  <div class="hero-img" role="img" aria-label="日本と中国のビジネスをつなぐ握手"></div>
 </section>
 
 <!-- ============ 価値3点 ============ -->
@@ -481,7 +470,7 @@
     </div>
     <div class="grid g3">
       <div class="card pcard reveal"><span class="pcard__tag" style="background:rgba(11,42,94,.08);color:var(--navy);">現地流通パートナー</span><h3>株式会社HAYI</h3><p>日系商品の取り扱い実績多数。中国現地での広範な流通ネットワークを保有し、物流から卸までをカバー。</p></div>
-      <div class="card pcard reveal d1"><span class="pcard__tag" style="background:rgba(174,141,89,.14);color:var(--gold-2);">中国大手小売パートナー</span><h3>DAZZLE FASHION</h3><p>日本にも進出する、中国全土への販売展開力を持つ大手アパレルグループ。強力な集客力を有する。</p></div>
+      <div class="card pcard reveal d1"><span class="pcard__tag" style="background:rgba(30,136,229,.12);color:var(--gold-2);">中国大手小売パートナー</span><h3>DAZZLE FASHION</h3><p>日本にも進出する、中国全土への販売展開力を持つ大手アパレルグループ。強力な集客力を有する。</p></div>
       <div class="card pcard reveal d2"><span class="pcard__tag" style="background:#EEF1F5;color:var(--muted);">ハイエンド販路</span><h3>有力小売・百貨店</h3><ul><li>北京 SKP</li><li>上海 恒隆広場</li><li>上海 新天地</li><li>久光百貨　など</li></ul></div>
     </div>
     <div class="net-logos reveal">
