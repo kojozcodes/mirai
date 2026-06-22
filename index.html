@@ -140,6 +140,8 @@
   .value small { font-family: var(--label); letter-spacing: .15em; font-size: 11px; color: var(--gold); display: block; margin-bottom: 8px; }
   .value b { font-family: var(--serif); font-size: clamp(24px, 2.9vw, 34px); display: block; line-height: 1.3; }
   .value b em { color: var(--gold); font-style: normal; }
+  .value-ic { display: block; margin-bottom: 12px; }
+  .value-ic svg { width: 30px; height: 30px; color: var(--accent); }
 
   /* ===== カード（共通） ===== */
   .grid { display: grid; gap: 28px; }
@@ -151,6 +153,8 @@
 
   /* 課題の4カード */
   .wall .num { font-family: var(--serif); font-size: 30px; color: var(--gold); font-weight: 700; line-height: 1; }
+  .wall-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .wall-ic { width: 30px; height: 30px; color: var(--accent); flex: 0 0 auto; }
   .wall h3 { font-family: var(--serif); font-size: 19px; color: var(--navy); margin: 10px 0 10px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
   .wall p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.8; }
 
@@ -354,9 +358,9 @@
 <!-- ============ 価値3点 ============ -->
 <section class="values">
   <div class="wrap values-in">
-    <div class="value"><small>CONSULTATION</small><b>相談は<em>無料</em></b></div>
-    <div class="value"><small>LOW RISK</small><b>現地法人<em>不要</em></b></div>
-    <div class="value"><small>SMALL START</small><b>まず<em>小さく</em>試せる</b></div>
+    <div class="value"><span class="value-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10"/><path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2"/></svg></span><small>CONSULTATION</small><b>相談は<em>無料</em></b></div>
+    <div class="value"><span class="value-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M9 12h1"/><path d="M9 16h1"/><path d="M14 8h1"/><path d="M14 16h1"/><path d="M5 21v-16"/><path d="M7 3h10c1 0 2 1 2 2v10"/><path d="M19 19v2"/><path d="M3 3l18 18"/></svg></span><small>LOW RISK</small><b>現地法人<em>不要</em></b></div>
+    <div class="value"><span class="value-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 8.04l-12.122 12.124a2.857 2.857 0 1 1 -4.041 -4.04l12.122 -12.124"/><path d="M7 13h8"/><path d="M19 15l1.5 1.6a2 2 0 1 1 -3 0l1.5 -1.6"/><path d="M15 3l6 6"/></svg></span><small>SMALL START</small><b>まず<em>小さく</em>試せる</b></div>
   </div>
 </section>
 
@@ -369,10 +373,10 @@
       <p class="sec-lead">商品には自信があるが、ノウハウがない。Miraiパートナーは、日本メーカーが抱える「参入障壁」を取り払います。</p>
     </div>
     <div class="grid g4">
-      <div class="card wall reveal"><div class="num">01</div><h3>実務の壁</h3><p>海外輸出入の経験がなく、手続きが煩雑で進め方がわからない。</p></div>
-      <div class="card wall reveal d1"><div class="num">02</div><h3>繋がりの壁</h3><p>中国現地での有力なコネクションや、信頼できるパートナーがいない。</p></div>
-      <div class="card wall reveal d2"><div class="num">03</div><h3>リスクの壁</h3><p>直営店を出すための初期投資が大きすぎ、失敗した際の痛手が大きい。</p></div>
-      <div class="card wall reveal d3"><div class="num">04</div><h3>運用の壁</h3><p>契約書やリーガルチェックの手間、言語の壁によるコミュニケーションロス。</p></div>
+      <div class="card wall reveal"><div class="wall-top"><svg class="wall-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/><path d="M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2"/><path d="M9 12l.01 0"/><path d="M13 12l2 0"/><path d="M9 16l.01 0"/><path d="M13 16l2 0"/></svg><div class="num">01</div></div><h3>実務の壁</h3><p>海外輸出入の経験がなく、手続きが煩雑で進め方がわからない。</p></div>
+      <div class="card wall reveal d1"><div class="wall-top"><svg class="wall-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1"/><path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M17 10h2a2 2 0 0 1 2 2v1"/><path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M3 13v-1a2 2 0 0 1 2 -2h2"/></svg><div class="num">02</div></div><h3>繋がりの壁</h3><p>中国現地での有力なコネクションや、信頼できるパートナーがいない。</p></div>
+      <div class="card wall reveal d2"><div class="wall-top"><svg class="wall-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4"/><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0"/><path d="M12 16h.01"/></svg><div class="num">03</div></div><h3>リスクの壁</h3><p>直営店を出すための初期投資が大きすぎ、失敗した際の痛手が大きい。</p></div>
+      <div class="card wall reveal d3"><div class="wall-top"><svg class="wall-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6.371c0 4.418 -2.239 6.629 -5 6.629"/><path d="M4 6.371h7"/><path d="M5 9c0 2.144 2.252 3.908 6 4"/><path d="M12 20l4 -9l4 9"/><path d="M19.1 18h-6.2"/><path d="M6.694 3l.793 .582"/></svg><div class="num">04</div></div><h3>運用の壁</h3><p>契約書やリーガルチェックの手間、言語の壁によるコミュニケーションロス。</p></div>
     </div>
   </div>
 </section>
