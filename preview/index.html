@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>株式会社Miraiパートナー｜日本のものづくりと、中国小売ネットワークをつなぐ</title>
+<meta name="description" content="中国市場で日本商品を求めるパートナーと、日本の優れたものづくりを接続する。既存の販売ネットワークへ接続し、小さく始め、検証し、拡大する『販売接続型モデル』。" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="株式会社Miraiパートナー｜日本のものづくりと、中国小売ネットワークをつなぐ" />
+<meta property="og:description" content="中国側に既に存在する販売ネットワークへ、日本商品を接続する販売接続型モデル。" />
+<meta property="og:site_name" content="Miraiパートナー" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@600;700;900&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    /* 我々のブランドカラー（ダークネイビー × ブルーアクセント） */
+    --navy: #0E2A5E;       /* ダークネイビー（ナビ/バンド/見出し） */
+    --navy-2: #07203F;     /* 深ネイビー（フッター等） */
+    --gold: #1E88E5;       /* ブルーアクセント（旧ゴールド枠を流用） */
+    --gold-2: #1466C4;     /* 濃いブルー */
+    --accent: #E0740D;     /* 補色アクセント：アンバーオレンジ（ブルーの補色） */
+    --accent-2: #C25E08;   /* 濃いオレンジ（ホバー） */
+    --brown: #6E4A2C;      /* ブラウン：オレンジ系の深い暖色（クラフト/ものづくりの質感） */
+    --brown-2: #3F2D1C;    /* 濃いエスプレッソ（フッター地） */
+    --cream: #F5EEE3;      /* 生成り：暖色のセクション地 */
+    --cream-2: #EDE0CE;    /* 濃い生成り：特典ボックス */
+    --red: #0E2A5E;        /* 電話CTA：ネイビー（赤は不採用） */
+    --red-2: #07203F;
+    --ink: #1E2530;        /* 本文 */
+    --muted: #5C6675;
+    --line: #E4E7EC;
+    --bg: #FFFFFF;
+    --bg-soft: #F4F7FC;    /* ごく薄いブルーグレー帯 */
+    --bg-soft-2: #EAF0F8;
+
+    /* 見出しを太く出せる明朝（Noto Serif JP は 900 まで）＋ UD明朝/システム明朝フォールバック */
+    --serif: 'Noto Serif JP', 'BIZ UDPMincho', 'udmincho', 'MS Mincho', 'ヒラギノ明朝 ProN', 'Hiragino Mincho ProN', serif;
+    --sans: Helvetica, Arial, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
+    --label: 'Montserrat', Helvetica, sans-serif;
+    --maxw: 1320px;
+    --radius: 8px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 130px; }
+  body {
+    margin: 0; font-family: var(--sans); color: var(--ink); background: var(--bg);
+    font-weight: 600; line-height: 1.85; letter-spacing: .02em; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  /* 全体的に文字を太く：明朝の小見出しは weight 未指定だと 400 になるため 700 を明示 */
+  .wall h3, .contrast-head, .exec h3, .pcard h3, .step__no b, .step__c h3,
+  .channel b, .net-logos span, .lead-form__head b { font-weight: 700; }
+  .reason__body p, .exec p, .pcard p, .step__c p, .wall p, .sec-lead, .channel small { font-weight: 600; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  p { text-wrap: pretty; }  /* 日本語の孤立文字（行末の「す。」等）を防ぐ */
+
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  .block { padding: 100px 0; position: relative; }
+  .block.soft { background: var(--bg-soft); }
+
+  /* ===== セクション見出し（中央・明朝） ===== */
+  .sec-head { text-align: center; margin: 0 auto 56px; max-width: 900px; }
+  .sec-label { font-family: var(--label); font-size: 13px; letter-spacing: .22em; color: var(--gold); font-weight: 700; text-transform: uppercase; display: inline-block; margin-bottom: 14px; }
+  .sec-title { font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: clamp(26px, 3.6vw, 38px); line-height: 1.45; margin: 0; text-wrap: balance; }
+  .sec-title .g { color: var(--accent); }
+  .sec-lead { color: var(--muted); font-size: 15.5px; margin: 18px auto 0; max-width: 660px; text-wrap: pretty; word-break: auto-phrase; }
+
+  /* ===== ボタン ===== */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-weight: 700; font-size: 15px; padding: 15px 30px; border-radius: 4px; cursor: pointer; border: none; transition: transform .2s, box-shadow .2s, background .2s; white-space: nowrap; font-family: var(--sans); }
+  .btn svg { width: 18px; height: 18px; fill: currentColor; }
+  .btn-red { background: var(--red); color: #fff; }
+  .btn-outline { background: transparent; color: var(--navy); border: 1.5px solid rgba(14,42,94,.30); }
+  .btn-outline:hover { border-color: var(--navy); background: rgba(14,42,94,.04); transform: translateY(-2px); }
+  .btn-red:hover { background: var(--red-2); transform: translateY(-2px); }
+  .btn-gold { background: var(--accent); color: #fff; }
+  .btn-gold:hover { transform: translateY(-2px); background: var(--accent-2); }
+  .btn-navy { background: var(--navy); color: #fff; }
+  .btn-navy:hover { background: var(--navy-2); transform: translateY(-2px); }
+  .btn-lg { padding: 18px 44px; font-size: 16px; }
+
+  /* ===== ヘッダー（ユーティリティバー + ネイビーナビ・固定） ===== */
+  .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; box-shadow: 0 2px 12px rgba(11,42,94,.06); }
+  .util { background: #fff; }
+  .util-in { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-mark { width: 36px; height: 36px; border-radius: 7px; background: linear-gradient(135deg, var(--navy), #16438C); display: grid; place-items: center; flex: 0 0 auto; }
+  .brand-mark svg { width: 20px; height: 20px; fill: #fff; }
+  .brand-name { line-height: 1.25; }
+  .brand-name b { font-size: 17px; color: var(--navy); font-weight: 700; }
+  .brand-name span { display: block; font-size: 10.5px; letter-spacing: .14em; color: var(--muted); font-family: var(--label); }
+  .util-cta { display: flex; gap: 10px; }
+  .util-cta .btn { padding: 12px 20px; font-size: 14px; }
+  .nav { background: var(--navy); }
+  .nav-in { display: flex; align-items: center; justify-content: center; height: 50px; gap: 0; }
+  .nav-in a { color: #fff; font-size: 14px; font-weight: 700; padding: 0 26px; line-height: 50px; position: relative; transition: color .2s; }
+  .nav-in a + a::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 16px; background: rgba(255,255,255,.18); }
+  .nav-in a:hover { color: var(--gold); }
+  .nav-toggle { display: none; }
+
+  /* ===== ヒーロー ===== */
+  /* スプリットヒーロー：左=白パネル（テキスト視認性最大）, 右=写真 */
+  .hero { margin-top: 120px; display: grid; grid-template-columns: 1.02fr 0.98fr; align-items: stretch; min-height: 560px; }
+  .hero-left { display: flex; align-items: center; background: var(--bg); padding: 56px clamp(28px, 6vw, 84px); }
+  .hero-img { background: url("../assets/img/v2-hero.jpg") center / cover no-repeat; min-height: 560px; }
+  .hero-copy { max-width: 600px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: #fff; font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 3px; letter-spacing: .04em; margin-bottom: 22px; }
+  .hero-badge::before { content: ""; width: 7px; height: 7px; background: var(--accent); border-radius: 50%; }
+  .hero h1 { font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: clamp(25px, 3.2vw, 37px); line-height: 1.4; margin: 0 0 22px; letter-spacing: .005em; word-break: keep-all; overflow-wrap: anywhere; }
+  .hero h1 .g { color: var(--accent); }
+  .hero-sub { font-size: 17px; color: var(--ink); font-weight: 700; margin: 0 0 26px; text-wrap: pretty; }
+  .hero-points { display: flex; gap: 10px; flex-wrap: wrap; }
+  .hero-point { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 4px; padding: 9px 16px; font-size: 14px; font-weight: 700; color: var(--navy); }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+  .hero-point b { color: var(--gold); font-family: var(--serif); }
+
+  /* ヒーロー内 リードフォーム */
+  .lead-form { background: #fff; border-radius: var(--radius); box-shadow: 0 18px 50px rgba(11,42,94,.18); border: 1px solid var(--line); overflow: hidden; }
+  .lead-form__head { background: var(--navy); color: #fff; text-align: center; padding: 16px; }
+  .lead-form__head b { font-family: var(--serif); font-size: 19px; }
+  .lead-form__head span { display: block; font-size: 11.5px; color: #Bcd0ef; color: rgba(255,255,255,.7); margin-top: 3px; }
+  .lead-form__body { padding: 20px; }
+  .lf-field { margin-bottom: 12px; }
+  .lf-field label { display: block; font-size: 12.5px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+  .lf-field label i { color: var(--red); font-style: normal; font-size: 10px; margin-left: 5px; }
+  .lf-field input, .lf-field textarea, .lf-field select { width: 100%; padding: 11px 12px; border: 1px solid #CfD5DE; border-radius: 4px; font-size: 14px; font-family: var(--sans); background: #fff; color: var(--ink); }
+  .lf-field input:focus, .lf-field textarea:focus, .lf-field select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(30,136,229,.16); }
+  .lead-form .btn-gold { width: 100%; margin-top: 4px; padding: 15px; }
+  .lf-note { font-size: 11px; color: var(--muted); text-align: center; margin: 10px 0 0; }
+
+  /* ===== 価値3点（ヒーロー下のバンド） ===== */
+  .values { background: var(--navy); }
+  .values-in { display: grid; grid-template-columns: repeat(3,1fr); }
+  .value { padding: 36px 24px; text-align: center; color: #fff; position: relative; }
+  .value + .value::before { content: ""; position: absolute; left: 0; top: 22%; height: 56%; width: 1px; background: rgba(255,255,255,.16); }
+  .value small { font-family: var(--label); letter-spacing: .15em; font-size: 11px; color: var(--gold); display: block; margin-bottom: 8px; }
+  .value b { font-family: var(--serif); font-size: clamp(22px, 2.6vw, 30px); display: block; line-height: 1.3; }
+  .value b em { color: var(--gold); font-style: normal; }
+
+  /* ===== カード（共通） ===== */
+  .grid { display: grid; gap: 22px; }
+  .g4 { grid-template-columns: repeat(4,1fr); }
+  .g3 { grid-template-columns: repeat(3,1fr); }
+  .g2 { grid-template-columns: repeat(2,1fr); }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 26px; box-shadow: 0 6px 20px rgba(11,42,94,.05); transition: transform .25s, box-shadow .25s; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(11,42,94,.10); }
+
+  /* 課題の4カード */
+  .wall .num { font-family: var(--serif); font-size: 30px; color: var(--gold); font-weight: 700; line-height: 1; }
+  .wall h3 { font-family: var(--serif); font-size: 19px; color: var(--navy); margin: 10px 0 10px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+  .wall p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.8; }
+
+  /* ===== 比較（バー + 対比） ===== */
+  .compare { display: grid; grid-template-columns: 1.1fr .9fr; gap: 44px; align-items: start; }
+  .bars-head { font-family: var(--label); font-size: 12px; letter-spacing: .12em; color: var(--muted); text-transform: uppercase; margin: 0 0 18px; }
+  .bar-row { margin-bottom: 22px; }
+  .bar-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .bar-name { font-weight: 700; color: var(--navy); font-size: 15px; }
+  .bar-val { font-size: 13px; color: var(--muted); font-family: var(--label); }
+  .bar-track { height: 15px; background: #E9ECF1; border-radius: 999px; overflow: hidden; }
+  .bar-fill { height: 100%; width: 0; border-radius: 999px; transition: width 1.3s cubic-bezier(.16,1,.3,1); }
+  .f-old { background: #9AA3B2; }
+  .f-mid { background: linear-gradient(90deg, var(--navy), #2D63B6); }
+  .f-low { background: linear-gradient(90deg, var(--gold-2), var(--gold)); }
+  .compare-note { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+  .contrast { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; box-shadow: 0 6px 20px rgba(11,42,94,.05); }
+  .contrast-head { background: var(--navy); color: #fff; font-family: var(--serif); font-size: 16px; padding: 14px 20px; }
+  .contrast li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 13px 20px; font-size: 14px; }
+  .contrast li + li { border-top: 1px solid var(--line); }
+  .contrast .c-dim { color: var(--ink); font-weight: 600; }
+  .contrast .c-vs s { color: var(--muted); font-size: 12.5px; }
+  .contrast .c-vs i { color: var(--gold); font-style: normal; font-weight: 700; margin: 0 6px; }
+  .contrast .c-vs b { color: var(--navy); }
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .tag { font-family: var(--label); font-weight: 700; font-size: 13px; color: var(--navy); border: 1px solid rgba(11,42,94,.18); background: rgba(11,42,94,.04); border-radius: 3px; padding: 8px 14px; }
+
+  /* ===== 強み（番号付き 写真 + ネイビーバンド） ===== */
+  .reason { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; margin-bottom: 4px; }
+  .reason + .reason { margin-top: 0; }
+  .reason__img { background-size: cover; background-position: center; min-height: 380px; }
+  .reason__body { background: var(--navy); color: #fff; padding: 56px 54px; display: flex; flex-direction: column; justify-content: center; }
+  .reason--alt .reason__img { order: 2; }
+  .reason__num { font-family: var(--serif); font-size: 56px; color: var(--gold); font-weight: 700; line-height: .9; }
+  .reason__body h3 { font-family: var(--serif); font-size: clamp(22px, 2.4vw, 28px); font-weight: 700; margin: 8px 0 18px; line-height: 1.55; }
+  .reason__lead { color: var(--gold); font-weight: 700; font-size: 15.5px; margin: 0 0 12px; }
+  .reason__body p { color: rgba(255,255,255,.86); font-size: 15px; margin: 0; line-height: 1.95; }
+
+  /* ===== 経営陣 ===== */
+  .exec { display: flex; gap: 24px; align-items: flex-start; }
+  .exec__pic { width: 100px; height: 124px; flex: 0 0 auto; border-radius: 6px; background: linear-gradient(135deg, #EEF1F5, #DCE3EC); display: grid; place-items: center; overflow: hidden; border: 1px solid var(--line); }
+  .exec__pic svg { width: 46px; height: 46px; fill: #AAB4C2; }
+  .exec__pic img { width: 100%; height: 100%; object-fit: cover; }
+  .exec .role { font-family: var(--label); font-size: 12px; letter-spacing: .08em; color: var(--gold); font-weight: 700; }
+  .exec h3 { font-family: var(--serif); font-size: 22px; color: var(--navy); margin: 4px 0 12px; }
+  .exec p { font-size: 13.5px; color: var(--muted); margin: 0; line-height: 1.8; }
+
+  /* ===== パートナーネットワーク ===== */
+  .pcard__tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 3px; margin-bottom: 14px; }
+  .pcard h3 { font-family: var(--serif); font-size: 21px; color: var(--navy); margin: 0 0 10px; }
+  .pcard p, .pcard li { font-size: 14px; color: var(--muted); }
+  .pcard ul li { padding: 4px 0 4px 16px; position: relative; }
+  .pcard ul li::before { content: ""; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+  .net-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 36px; margin-top: 44px; padding-top: 36px; border-top: 1px solid var(--line); }
+  .net-logos span { font-family: var(--serif); font-weight: 600; color: var(--navy); opacity: .7; font-size: 18px; }
+
+  /* ===== ロードマップ（サービスの流れ） ===== */
+  .flow { max-width: 880px; margin: 0 auto; }
+  .step { display: grid; grid-template-columns: 92px 1fr; gap: 26px; position: relative; padding-bottom: 34px; }
+  .step:not(:last-child)::before { content: ""; position: absolute; left: 45px; top: 78px; bottom: -6px; width: 2px; background: linear-gradient(var(--gold), rgba(30,136,229,.22)); }
+  .step__no { width: 88px; height: 88px; border-radius: 50%; border: none; background: linear-gradient(155deg, #1A4488, var(--navy)); display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; text-align: center; box-shadow: 0 8px 18px rgba(14,42,94,.16); }
+  .step__no small { font-family: var(--label); font-size: 10px; letter-spacing: .1em; color: var(--gold); margin: 0 0 4px; line-height: 1; }
+  .step__no b { font-family: var(--serif); font-size: 26px; color: #fff; line-height: 1; display: block; }
+  .step__c { padding-top: 8px; }
+  .step__c h3 { font-family: var(--serif); font-size: 21px; color: var(--navy); margin: 0 0 8px; }
+  .step__c p { font-size: 14px; color: var(--muted); margin: 0; }
+  .step.goal .step__no { background: linear-gradient(150deg, #3AA0EE, var(--gold-2)); box-shadow: 0 8px 18px rgba(14,42,94,.20); }
+  .step.goal .step__no small, .step.goal .step__no b { color: #fff; }
+
+  /* ===== 料金 ===== */
+  .price-wrap { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: 0 8px 26px rgba(11,42,94,.06); max-width: 1080px; margin: 0 auto; }
+  table.price { width: 100%; border-collapse: collapse; background: #fff; }
+  table.price th { background: var(--navy); color: #fff; font-size: 14px; padding: 16px 22px; text-align: left; font-weight: 700; }
+  table.price td { padding: 20px 22px; border-bottom: 1px solid var(--line); font-size: 15px; }
+  table.price tr:last-child td { border-bottom: none; }
+  table.price td:first-child { font-weight: 700; color: var(--navy); width: 30%; }
+  table.price .price { font-family: var(--serif); font-weight: 700; color: var(--gold-2); font-size: 22px; width: 24%; }
+  table.price .price.free { color: var(--navy); }
+  #pricing { background: var(--cream); }   /* 暖色（生成り）のセクション地 */
+  .price-note { font-size: 12.5px; color: var(--muted); margin: 14px auto 0; max-width: 1080px; }
+  .bonus { max-width: 1080px; margin: 26px auto 0; background: var(--cream-2); border: 1px solid var(--brown); border-radius: var(--radius); padding: 20px 26px; text-align: center; color: var(--brown-2); font-weight: 700; font-size: 17px; }
+  .bonus em { color: var(--accent); font-style: normal; font-family: var(--serif); font-size: 22px; }
+
+  /* ===== ネイビーCTAバンド ===== */
+  .cta-band { background-image: linear-gradient(rgba(8,28,62,.72), rgba(6,24,54,.88)), url("../assets/img/v2-cta.jpg"); background-size: cover; background-position: center; background-attachment: fixed; color: #fff; text-align: center; position: relative; overflow: hidden; }
+  .cta-band::after { content: ""; position: absolute; inset: 0; background: radial-gradient(800px 300px at 50% 0%, rgba(46,155,234,.20), transparent 70%); pointer-events: none; }
+  .cta-band .sec-label { color: var(--gold); }
+  .cta-band h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(24px, 3.4vw, 36px); line-height: 1.5; margin: 0 0 14px; position: relative; }
+  .cta-band h2 .g { color: var(--accent); }
+  .cta-band p { color: rgba(255,255,255,.8); margin: 0 0 30px; position: relative; }
+
+  /* ===== コンタクト ===== */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .channel { display: flex; align-items: center; gap: 18px; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; background: #fff; margin-bottom: 16px; transition: box-shadow .2s, transform .2s; }
+  .channel:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(11,42,94,.08); }
+  .channel__ic { width: 52px; height: 52px; border-radius: 8px; display: grid; place-items: center; flex: 0 0 auto; color: #fff; }
+  .channel__ic.tel { background: var(--red); }
+  .channel__ic.mail { background: var(--navy); }
+  .channel__ic svg { width: 24px; height: 24px; fill: currentColor; }
+  .channel small { color: var(--muted); font-size: 12.5px; }
+  .channel b { display: block; font-family: var(--serif); font-size: 22px; color: var(--navy); }
+  .channel .note { font-size: 12px; color: var(--gold-2); }
+
+  /* ===== フッター ===== */
+  .foot { background: var(--gold-2); color: rgba(255,255,255,.82); padding: 56px 0 30px; }
+  .foot-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
+  .foot .brand-name b { color: #fff; }
+  .foot-meta { font-size: 13.5px; line-height: 2; text-align: right; }
+  .foot-meta a:hover { color: var(--gold); }
+  .foot-bottom { margin-top: 36px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.12); text-align: center; font-size: 12px; }
+  .foot-bottom a { color: rgba(255,255,255,.6); }
+
+  /* ===== reveal ===== */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .1s; } .reveal.d2 { transition-delay: .2s; } .reveal.d3 { transition-delay: .3s; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; } }
+
+  /* ===== レスポンシブ ===== */
+  @media (max-width: 980px) {
+    .g4 { grid-template-columns: repeat(2,1fr); }
+    .g3, .g2, .compare, .contact-grid { grid-template-columns: 1fr; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-img { min-height: 300px; order: -1; }
+    .lead-form { max-width: 460px; }
+    .reason { grid-template-columns: 1fr; }
+    .reason--alt .reason__img { order: 0; }
+    .reason__img { min-height: 240px; }
+    .values-in { grid-template-columns: 1fr; }
+    .value + .value::before { display: none; }
+    .value { border-top: 1px solid rgba(255,255,255,.14); }
+    .nav-in { gap: 0; flex-wrap: wrap; height: auto; }
+  }
+  @media (max-width: 680px) {
+    .block { padding: 64px 0; }
+    .g4 { grid-template-columns: 1fr; }
+    .util-cta .btn span { display: none; }
+    .util-cta .btn { padding: 12px 14px; }
+    .nav { display: none; }
+    .hero { margin-top: 70px; min-height: auto; }
+    .hero-img { min-height: 230px; }
+    .hero-left { padding: 40px 22px; }
+    .brand-name span { display: none; }
+    table.price td, table.price th { padding: 13px 14px; }
+    table.price .price { font-size: 18px; }
+    .reason__body { padding: 36px 26px; }
+  }
+
+  /* 背景画像は CTA バンドのみに集約（コンタクトは clean light）。モバイルは固定背景を解除 */
+  @media (max-width: 680px) { .cta-band { background-attachment: scroll; } }
+
+  /* 見出し（明朝）を最大ウェイト 900 に：Noto Serif JP の Black で力強く。末尾に置き個別の 700 指定を上書き */
+  .hero h1, .sec-title, .cta-band h2, .reason__body h3,
+  .reason__num, .wall .num, .value b, .channel b { font-weight: 900; }
+  .sec-title, .hero h1 { letter-spacing: .005em; }
+</style>
+</head>
+<body>
+
+<!-- ============ ヘッダー ============ -->
+<header class="header" id="hdr">
+  <div class="util">
+    <div class="wrap util-in">
+      <a href="#top" class="brand">
+        <span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M12 2 2 21h20L12 2zm0 5.6 5.9 11.4H6.1L12 7.6z"/></svg></span>
+        <span class="brand-name"><b>株式会社Miraiパートナー</b><span>MIRAI PARTNER</span></span>
+      </a>
+      <div class="util-cta">
+        <a href="tel:0XXXXXXXXXX" class="btn btn-red"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1l-2.23 2.2z"/></svg><span>電話で相談</span></a>
+        <a href="#contact" class="btn btn-gold"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg><span>お問い合わせ</span></a>
+      </div>
+    </div>
+  </div>
+  <nav class="nav">
+    <div class="wrap nav-in">
+      <a href="#problem">課題</a>
+      <a href="#model">販売接続モデル</a>
+      <a href="#reasons">選ばれる理由</a>
+      <a href="#roadmap">取引の流れ</a>
+      <a href="#pricing">料金</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ ヒーロー ============ -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div class="hero-copy">
+      <span class="hero-badge">日本 × 中国 ／ 販売接続モデル</span>
+      <h1>日本のものづくりと、<br><span class="g">中国小売ネットワーク</span>をつなぐ</h1>
+      <p class="hero-sub">中国市場で日本商品を求めるパートナーと、日本の優れたものづくりを接続する。既存ネットワークへ「接続」し、小さく始め、検証し、拡大します。</p>
+      <div class="hero-points">
+        <span class="hero-point"><b>相談無料</b></span>
+        <span class="hero-point">現地法人 <b>不要</b></span>
+        <span class="hero-point">まず<b>小さく試せる</b></span>
+      </div>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-gold btn-lg">まずは無料で相談する</a>
+        <a href="#model" class="btn btn-outline btn-lg">事業内容を見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-img" role="img" aria-label="日本と中国のビジネスをつなぐ握手"></div>
+</section>
+
+<!-- ============ 価値3点 ============ -->
+<section class="values">
+  <div class="wrap values-in">
+    <div class="value"><small>CONSULTATION</small><b>相談は<em>無料</em></b></div>
+    <div class="value"><small>LOW RISK</small><b>現地法人<em>不要</em></b></div>
+    <div class="value"><small>SMALL START</small><b>まず<em>小さく</em>試せる</b></div>
+  </div>
+</section>
+
+<!-- ============ 課題 ============ -->
+<section class="block soft" id="problem">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">The Challenge</span>
+      <h2 class="sec-title">中国で“売れる接点”を、<br>どう作るか？</h2>
+      <p class="sec-lead">商品には自信があるが、ノウハウがない。Miraiパートナーは、日本メーカーが抱える「参入障壁」を取り払います。</p>
+    </div>
+    <div class="grid g4">
+      <div class="card wall reveal"><div class="num">01</div><h3>実務の壁</h3><p>海外輸出入の経験がなく、手続きが煩雑で進め方がわからない。</p></div>
+      <div class="card wall reveal d1"><div class="num">02</div><h3>繋がりの壁</h3><p>中国現地での有力なコネクションや、信頼できるパートナーがいない。</p></div>
+      <div class="card wall reveal d2"><div class="num">03</div><h3>リスクの壁</h3><p>直営店を出すための初期投資が大きすぎ、失敗した際の痛手が大きい。</p></div>
+      <div class="card wall reveal d3"><div class="num">04</div><h3>運用の壁</h3><p>契約書やリーガルチェックの手間、言語の壁によるコミュニケーションロス。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 販売接続モデル ============ -->
+<section class="block" id="model">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Sales Connection Model</span>
+      <h2 class="sec-title">販売接続を、<span class="g">もっと軽く。</span></h2>
+      <p class="sec-lead">従来モデルに比べ、初期投資と固定費を大幅に削減。まずは「トライ」できる環境を提供します。</p>
+    </div>
+    <div class="compare">
+      <div class="reveal">
+        <p class="bars-head">初期投資・固定費（イメージ比較）</p>
+        <div class="bar-row"><div class="bar-label"><span class="bar-name">従来モデル（直営店）</span><span class="bar-val">数千万円〜</span></div><div class="bar-track"><div class="bar-fill f-old" data-w="100%"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span class="bar-name">Miraiパートナー｜代理店モデル</span><span class="bar-val">数百万円〜</span></div><div class="bar-track"><div class="bar-fill f-mid" data-w="40%"></div></div></div>
+        <div class="bar-row"><div class="bar-label"><span class="bar-name">Miraiパートナー｜ECモデル</span><span class="bar-val">出店料のみ・30万円〜</span></div><div class="bar-track"><div class="bar-fill f-low" data-w="16%"></div></div></div>
+        <p class="compare-note">※ コスト構造のイメージ図。既存ネットワークへ「接続」することで、ゼロからの販路開拓に比べ初期投資を大幅圧縮。</p>
+      </div>
+      <div class="reveal d1">
+        <div class="contrast">
+          <div class="contrast-head">従来モデルとの違い</div>
+          <ul>
+            <li><span class="c-dim">現地法人の設立</span><span class="c-vs"><s>必須</s><i>→</i><b>不要</b></span></li>
+            <li><span class="c-dim">実店舗・現地スタッフ</span><span class="c-vs"><s>必要</s><i>→</i><b>不要</b></span></li>
+            <li><span class="c-dim">撤退リスク</span><span class="c-vs"><s>高い</s><i>→</i><b>極小</b></span></li>
+            <li><span class="c-dim">販路の確保</span><span class="c-vs"><s>ゼロから</s><i>→</i><b>既設網に接続</b></span></li>
+          </ul>
+        </div>
+        <div class="tags">
+          <span class="tag">Asset Light</span><span class="tag">Low Entry Barrier</span><span class="tag">初期投資削減</span><span class="tag">スピード参入</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 選ばれる理由（番号付き 写真+ネイビーバンド） ============ -->
+<section id="reasons">
+  <div class="block" style="padding-bottom:54px;">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-label">Why Mirai Partner</span>
+        <h2 class="sec-title">選ばれる理由</h2>
+        <p class="sec-lead">現場を知るプロが集結。机上の空論ではなく、中国の現場で培った実務で日本企業に伴走します。</p>
+      </div>
+    </div>
+  </div>
+  <div class="reason reveal">
+    <div class="reason__img" style="background-image:url('../assets/img/v2-china.jpg')"></div>
+    <div class="reason__body">
+      <div class="reason__num">01</div>
+      <h3>中国現場を、知り尽くす</h3>
+      <p class="reason__lead">中国主要都市での豊富な実務経験。</p>
+      <p>商習慣・流通・交渉の「現場」を熟知した日本人メンバーが直接統括。不透明な取引を排除し、クリーンで誠実な販売接続を実現します。</p>
+    </div>
+  </div>
+  <div class="reason reason--alt reveal">
+    <div class="reason__img" style="background-image:url('../assets/img/v2-team.jpg')"></div>
+    <div class="reason__body">
+      <div class="reason__num">02</div>
+      <h3>日本企業に、伴走する体制</h3>
+      <p class="reason__lead">「攻め（販売）」と「守り（会計・法務）」の両立。</p>
+      <p>日本企業の支援経験を持つチームが、販売だけでなく契約・実務まで並走。安心して中国市場へ踏み出せる体制を整えます。</p>
+    </div>
+  </div>
+  <div class="reason reveal">
+    <div class="reason__img" style="background-image:url('../assets/img/monozukuri.jpg')"></div>
+    <div class="reason__body">
+      <div class="reason__num">03</div>
+      <h3>日本のものづくりへの、理解</h3>
+      <p class="reason__lead">一過性ではない、Win-Winの長期思想。</p>
+      <p>日本の優れたものづくりを理解した上で、最もポテンシャルを発揮できる現地の棚（チャネル）へ正確に接続。共に未来をつくるパートナーを目指します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 経営陣 ============ -->
+<section class="block soft" id="team">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Management</span>
+      <h2 class="sec-title">経営陣のご紹介</h2>
+      <p class="sec-lead">実務のプロ（MD・小売）と守りのプロ（会計・法務）が、盤石の体制で支援します。</p>
+    </div>
+    <div class="grid g2">
+      <div class="card exec reveal">
+        <div class="exec__pic"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+        <div><p class="role">代表取締役 / CEO</p><h3>増田 稔弘</h3><p>日系高級婦人ブランドに29年勤務。中国事業総責任者を歴任し、新規事業立上・MD企画の豊富な経験を持つ。2026年、Miraiパートナーを設立。</p></div>
+      </div>
+      <div class="card exec reveal d1">
+        <div class="exec__pic"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+        <div><p class="role">取締役 / CFO</p><h3>星野 海</h3><p>日本国税理士、証券アナリスト。中国を中心に、日系現地法人のバックオフィス支援（会計・登記等）を提供する体制を運営。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ パートナーネットワーク ============ -->
+<section class="block" id="network">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Partner Network in China</span>
+      <h2 class="sec-title">中国市場で販売力を持つ<br>パートナーとの接続</h2>
+      <p class="sec-lead">「ゼロから販路開拓」ではなく、既に存在するネットワークへ。日本商品の魅力を理解する現地パートナーと連携します。</p>
+    </div>
+    <div class="grid g3">
+      <div class="card pcard reveal"><span class="pcard__tag" style="background:rgba(11,42,94,.08);color:var(--navy);">現地流通パートナー</span><h3>株式会社HAYI</h3><p>日系商品の取り扱い実績多数。中国現地での広範な流通ネットワークを保有し、物流から卸までをカバー。</p></div>
+      <div class="card pcard reveal d1"><span class="pcard__tag" style="background:rgba(30,136,229,.12);color:var(--gold-2);">中国大手小売パートナー</span><h3>DAZZLE FASHION</h3><p>日本にも進出する、中国全土への販売展開力を持つ大手アパレルグループ。強力な集客力を有する。</p></div>
+      <div class="card pcard reveal d2"><span class="pcard__tag" style="background:#EEF1F5;color:var(--muted);">ハイエンド販路</span><h3>有力小売・百貨店</h3><ul><li>北京 SKP</li><li>上海 恒隆広場</li><li>上海 新天地</li><li>久光百貨　など</li></ul></div>
+    </div>
+    <div class="net-logos reveal">
+      <span>株式会社HAYI</span><span>DAZZLE FASHION</span><span>北京SKP</span><span>上海恒隆広場</span><span>上海新天地</span><span>久光百貨</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 取引の流れ ============ -->
+<section class="block soft" id="roadmap">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Flow</span>
+      <h2 class="sec-title">取引の流れ</h2>
+      <p class="sec-lead">最短ルートで中国市場への販売を実現し、共に未来を広げていきます。</p>
+    </div>
+    <div class="flow">
+      <div class="step reveal"><div class="step__no"><small>PHASE 1</small><b>1</b></div><div class="step__c"><h3>商品診断</h3><p>相談（基本無料）／商品適性診断。中国市場での可能性を見極めます。</p></div></div>
+      <div class="step reveal"><div class="step__no"><small>PHASE 2</small><b>2</b></div><div class="step__c"><h3>取引開始</h3><p>条件確認／現地契約サポート。クリーンな契約でリスクを最小化。</p></div></div>
+      <div class="step reveal"><div class="step__no"><small>PHASE 3</small><b>3</b></div><div class="step__c"><h3>販売マッチング</h3><p>販売先選定／スケジュール確認。最適な現地パートナーへ接続します。</p></div></div>
+      <div class="step reveal"><div class="step__no"><small>PHASE 4</small><b>4</b></div><div class="step__c"><h3>販売開始</h3><p>現地サポート／運用支援。既存の店舗・チャネルで速やかに販売を開始。</p></div></div>
+      <div class="step goal reveal"><div class="step__no"><small>GOAL</small><b>★</b></div><div class="step__c"><h3>継続拡大</h3><p>多都市展開／多チャネル展開。検証結果を反映し、段階的に拡大します。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 料金 ============ -->
+<section class="block" id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Pricing</span>
+      <h2 class="sec-title">料金体系（明朗会計）</h2>
+      <p class="sec-lead">小さく始められる、透明性の高い料金プラン。</p>
+    </div>
+    <div class="price-wrap reveal">
+      <table class="price">
+        <thead><tr><th>項目</th><th>料金</th><th>詳細・備考</th></tr></thead>
+        <tbody>
+          <tr><td>相談料</td><td class="price free">無料</td><td>まずは商品の可能性を診断いたします。お気軽にご相談ください。</td></tr>
+          <tr><td>出店・出品手数料</td><td class="price">¥300,000</td><td>初期セットアップ費用。プラットフォーム登録や各種申請サポートを含みます。</td></tr>
+          <tr><td>年間サポート</td><td class="price">¥100,000</td><td>2年目以降、必要に応じて更新可能です。</td></tr>
+          <tr><td>事務手数料</td><td class="price">卸値の5%</td><td>★ 1年目は3%の優遇レートを適用します。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="price-note reveal">※ 商標登録、検査、輸送費等の実費は別途ご負担いただきます。お見積もりは無料です。</p>
+    <div class="bonus reveal d1">ご紹介特典：契約成立で <em>5万円</em> キャッシュバック！</div>
+  </div>
+</section>
+
+<!-- ============ 共創 CTAバンド ============ -->
+<section class="block cta-band">
+  <div class="wrap">
+    <span class="sec-label reveal">Co-Creation</span>
+    <h2 class="reveal">共に未来をつくる<br><span class="g">パートナー</span>を募集しています</h2>
+    <p class="reveal">皆さんと一緒に、未来をつくっていきましょう。まずはお気軽にご相談ください。</p>
+    <a href="#contact" class="btn btn-gold btn-lg reveal d1">まずは無料で相談する</a>
+  </div>
+</section>
+
+<!-- ============ コンタクト ============ -->
+<section class="block soft" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Contact</span>
+      <h2 class="sec-title">まずはお気軽に<br>ご相談ください</h2>
+      <p class="sec-lead">「何から相談していいかわからない」という段階でも大歓迎です。第一歩が、貴社の未来を大きく変えるきっかけになります。</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <a class="channel" href="tel:0XXXXXXXXXX">
+          <span class="channel__ic tel"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1l-2.23 2.2z"/></svg></span>
+          <div><small>電話で相談</small><b>0XX-XXXX-XXXX</b><span class="note">（平日 9:00–18:00）不在時は折り返します</span></div>
+        </a>
+        <a class="channel" href="mailto:otoiawase@mirai-partner.site">
+          <span class="channel__ic mail"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+          <div><small>メールで相談</small><b style="font-size:17px;">otoiawase@mirai-partner.site</b><span class="note">2営業日以内に必ず返信いたします</span></div>
+        </a>
+      </div>
+      <form class="lead-form reveal d1" id="contactForm" novalidate style="box-shadow:0 10px 34px rgba(11,42,94,.10);">
+        <div class="lead-form__head"><b>無料相談お申し込み</b><span>※ 実装時はHubSpotフォームに差し替え</span></div>
+        <div class="lead-form__body">
+          <div class="lf-field"><label>会社名<i>必須</i></label><input type="text" name="company" placeholder="株式会社〇〇" required /></div>
+          <div class="lf-field"><label>ご担当者名<i>必須</i></label><input type="text" name="name" placeholder="山田 太郎" required /></div>
+          <div class="lf-field"><label>メールアドレス<i>必須</i></label><input type="email" name="email" placeholder="you@example.com" required /></div>
+          <div class="lf-field"><label>電話番号</label><input type="tel" name="tel" placeholder="03-1234-5678" /></div>
+          <div class="lf-field"><label>お問い合わせ内容<i>必須</i></label><textarea name="message" rows="4" placeholder="商品の概要や、ご相談されたい内容をご記入ください。" required></textarea></div>
+          <button type="submit" class="btn btn-gold">この内容で送信する</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ フッター ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="brand" style="margin-bottom:14px;">
+          <span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M12 2 2 21h20L12 2zm0 5.6 5.9 11.4H6.1L12 7.6z"/></svg></span>
+          <span class="brand-name"><b>株式会社Miraiパートナー</b><span>MIRAI PARTNER</span></span>
+        </div>
+        <p style="max-width:340px;font-size:13.5px;margin:0;">日本のものづくりと、中国小売ネットワークをつなぐ。販売接続型モデルで、小さく始め、検証し、拡大する。</p>
+      </div>
+      <div class="foot-meta">
+        〒107-0061 東京都港区北青山1丁目<br>
+        <a href="mailto:otoiawase@mirai-partner.site">otoiawase@mirai-partner.site</a><br>
+        <a href="https://www.mirai-partner.site">www.mirai-partner.site</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <a href="#">個人情報の取り扱いについて</a><br><br>
+      © 2026 株式会社Miraiパートナー. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  // reveal on scroll
+  var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        var bars = e.target.querySelectorAll ? e.target.querySelectorAll('.bar-fill') : [];
+        bars.forEach && bars.forEach(function (b) { b.style.width = b.getAttribute('data-w'); });
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: .14, rootMargin: '0px 0px -6% 0px' }) : null;
+  document.querySelectorAll('.reveal').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
+  if (!io) document.querySelectorAll('.bar-fill').forEach(function (b) { b.style.width = b.getAttribute('data-w'); });
+
+  // demo form submit (HubSpot差し替え前提)
+  document.querySelectorAll('#heroForm, #contactForm').forEach(function (f) {
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!f.checkValidity()) { f.reportValidity(); return; }
+      alert('【デモ用フォーム】送信ありがとうございます。実装時はHubSpotフォームに差し替わります。');
+      f.reset();
+    });
+  });
+})();
+</script>
+</body>
+</html>
