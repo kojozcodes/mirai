@@ -8,3 +8,6 @@
 # Local extraction / scratch artifacts
 _*.txt
 _*.py
+
+# temp: downloaded reference source
+_ref/
