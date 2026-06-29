@@ -11,3 +11,7 @@ _*.py
 
 # temp: downloaded reference source
 _ref/
+
+# HubSpot CLI auth (contains a personal access key — never commit)
+hubspot.config.yml
+.hubspot/
