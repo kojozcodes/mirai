@@ -1,65 +1,8 @@
 [
   {
-    "name": "brand_logo",
-    "label": "ブランドロゴ",
-    "help_text": "ヘッダー・フッターのロゴ画像。未設定の場合は既定のアイコンを表示します。",
-    "required": false,
-    "locked": false,
-    "type": "image",
-    "responsive": true,
-    "resizable": false,
-    "default": { "src": "", "alt": "株式会社Miraiパートナー", "loading": "eager" }
-  },
-  {
-    "name": "hero_image",
-    "label": "ヒーロー背景画像（中国都市景観）",
-    "help_text": "ファーストビューの背景。暗いオーバーレイがかかるため、夜景など暗めの画像を推奨します。",
-    "required": false,
-    "locked": false,
-    "type": "image",
-    "responsive": true,
-    "default": {
-      "src": "https://kojozcodes.github.io/mirai/assets/img/hero-shanghai.jpg",
-      "alt": "上海の夜景（中国都市景観）",
-      "loading": "eager"
-    }
-  },
-  {
-    "name": "strength_image",
-    "label": "強みセクション画像（日本のものづくり）",
-    "required": false,
-    "locked": false,
-    "type": "image",
-    "responsive": true,
-    "default": {
-      "src": "https://kojozcodes.github.io/mirai/assets/img/monozukuri.jpg",
-      "alt": "日本のものづくり — 職人の手仕事",
-      "loading": "lazy"
-    }
-  },
-  {
-    "name": "ceo_photo",
-    "label": "代表取締役 顔写真（増田 稔弘）",
-    "help_text": "未設定の場合はプレースホルダーを表示します。",
-    "required": false,
-    "locked": false,
-    "type": "image",
-    "responsive": true,
-    "default": { "src": "", "alt": "増田 稔弘", "loading": "lazy" }
-  },
-  {
-    "name": "cfo_photo",
-    "label": "取締役 顔写真（星野 海）",
-    "help_text": "未設定の場合はプレースホルダーを表示します。",
-    "required": false,
-    "locked": false,
-    "type": "image",
-    "responsive": true,
-    "default": { "src": "", "alt": "星野 海", "loading": "lazy" }
-  },
-  {
     "name": "contact_email",
     "label": "問い合わせメールアドレス",
+    "help_text": "コンタクト欄・フッターのメールアドレス（mailto: リンクにも使用）。",
     "required": false,
     "locked": false,
     "type": "text",
@@ -68,7 +11,7 @@
   {
     "name": "contact_phone",
     "label": "電話番号（表示用）",
-    "help_text": "ハイフン込みで入力可。tel: リンクはハイフンを自動除去します。",
+    "help_text": "ハイフン込みで入力可。tel: リンクはハイフン・スペースを自動除去します。",
     "required": false,
     "locked": false,
     "type": "text",
@@ -77,7 +20,7 @@
   {
     "name": "contact_form",
     "label": "問い合わせフォーム（HubSpotフォーム）",
-    "help_text": "会社名・ご担当者名・メール・電話・打ち合わせ希望日・お問い合わせ内容のフィールドを持つHubSpotフォームを作成し、選択してください。",
+    "help_text": "会社名・ご担当者名・メール・電話・お問い合わせ内容のフィールドを持つHubSpotフォームを作成し、選択してください。未選択の場合は案内文を表示します。",
     "required": false,
     "locked": false,
     "type": "form",
