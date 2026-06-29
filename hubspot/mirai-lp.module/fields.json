@@ -6,7 +6,7 @@
     "required": false,
     "locked": false,
     "type": "text",
-    "default": "otoiawase@mirai-partner.site"
+    "default": "otoiawase@hic-cvi.jp"
   },
   {
     "name": "contact_phone",
@@ -15,7 +15,7 @@
     "required": false,
     "locked": false,
     "type": "text",
-    "default": "0XX-XXXX-XXXX"
+    "default": "03-6695-7128"
   },
   {
     "name": "contact_form",
@@ -25,7 +25,7 @@
     "locked": false,
     "type": "form",
     "default": {
-      "form_id": "",
+      "form_id": "cbf4f077-1350-4c01-8aa2-f9a5115818b9",
       "response_type": "inline",
       "message": "送信ありがとうございます。内容を確認のうえ、2営業日以内にご連絡いたします。"
     }

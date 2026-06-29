@@ -1,0 +1,25 @@
+<!--
+  templateType: page
+  label: Mirai Partner LP
+  isAvailableForNewContent: true
+  screenshotPath: ../mirai-lp.module/module.html
+-->
+<!doctype html>
+<html lang="{{ html_lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ standard_header_includes }}
+  <style>
+    /* full-bleed LP: drop the default page container/margins so the module's
+       own full-width sections render edge-to-edge */
+    body { margin: 0; padding: 0; }
+    .body-wrapper, .body-container, .body-container__inner, .container-fluid,
+    .row-fluid-wrapper, .row-fluid { max-width: none !important; padding: 0 !important; margin: 0 !important; width: 100% !important; }
+  </style>
+</head>
+<body>
+  {% module "mirai_lp" path="/mirai-lp.module" %}
+  {{ standard_footer_includes }}
+</body>
+</html>
