@@ -6,7 +6,7 @@
     "required": false,
     "locked": false,
     "type": "text",
-    "default": "otoiawase@hic-cvi.jp"
+    "default": "otoiawase@mirai-partner.site"
   },
   {
     "name": "contact_phone",
